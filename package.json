@@ -10,6 +10,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@google/genai": "^1.27.0"
+    "@google/genai": "^1.27.0",
+    "commander": "^14.0.2",
+    "puppeteer": "^24.26.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "winston": "^3.18.3"
   }
 }

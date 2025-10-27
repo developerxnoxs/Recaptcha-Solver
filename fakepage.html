@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA v2 Solver Test Page</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .info {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .info p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .info strong {
+            color: #667eea;
+        }
+        #recaptcha-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .status {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            background: #f8f9fa;
+        }
+        #token-display {
+            word-wrap: break-word;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #2e7d32;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 reCAPTCHA v2 Solver</h1>
+        <div class="subtitle">AI-Powered CAPTCHA Testing Tool</div>
+        
+        <div class="info">
+            <p><strong>Domain:</strong> <span id="domain-display">Loading...</span></p>
+            <p><strong>Sitekey:</strong> <span id="sitekey-display">Loading...</span></p>
+            <p><strong>Status:</strong> <span id="status">Initializing...</span></p>
+        </div>
+
+        <div id="recaptcha-container">
+            <div class="g-recaptcha" id="recaptcha-element"></div>
+        </div>
+
+        <div id="token-display"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const sitekey = urlParams.get('sitekey') || '6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-';
+        const domain = window.location.hostname;
+
+        document.getElementById('domain-display').textContent = domain;
+        document.getElementById('sitekey-display').textContent = sitekey;
+        document.getElementById('status').textContent = 'Ready - Waiting for solver...';
+
+        function onloadCallback() {
+            grecaptcha.render('recaptcha-element', {
+                'sitekey': sitekey,
+                'callback': onCaptchaSuccess,
+                'expired-callback': onCaptchaExpired,
+                'error-callback': onCaptchaError
+            });
+            document.getElementById('status').textContent = '✅ reCAPTCHA loaded successfully';
+        }
+
+        function onCaptchaSuccess(token) {
+            console.log('✅ CAPTCHA SOLVED! Token received:', token);
+            document.getElementById('status').textContent = '🎉 Success! Token received';
+            document.getElementById('status').classList.add('success');
+            
+            const tokenDisplay = document.getElementById('token-display');
+            tokenDisplay.textContent = 'Token: ' + token;
+            tokenDisplay.style.display = 'block';
+        }
+
+        function onCaptchaExpired() {
+            console.log('⏰ CAPTCHA expired');
+            document.getElementById('status').textContent = '⏰ Token expired - needs retry';
+        }
+
+        function onCaptchaError() {
+            console.log('❌ CAPTCHA error');
+            document.getElementById('status').textContent = '❌ Error loading reCAPTCHA';
+        }
+
+        if (typeof grecaptcha !== 'undefined') {
+            onloadCallback();
+        } else {
+            window.onloadCallback = onloadCallback;
+        }
+    </script>
+</body>
+</html>
