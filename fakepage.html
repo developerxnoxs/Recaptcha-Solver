@@ -104,7 +104,8 @@
         document.getElementById('sitekey-display').textContent = sitekey;
         document.getElementById('status').textContent = 'Ready - Waiting for solver...';
 
-        function onloadCallback() {
+        window.onloadCallback = function() {
+            console.log('onloadCallback fired!');
             grecaptcha.render('recaptcha-element', {
                 'sitekey': sitekey,
                 'callback': onCaptchaSuccess,
@@ -112,7 +113,8 @@
                 'error-callback': onCaptchaError
             });
             document.getElementById('status').textContent = '✅ reCAPTCHA loaded successfully';
-        }
+            console.log('reCAPTCHA rendered');
+        };
 
         function onCaptchaSuccess(token) {
             console.log('✅ CAPTCHA SOLVED! Token received:', token);
@@ -132,12 +134,6 @@
         function onCaptchaError() {
             console.log('❌ CAPTCHA error');
             document.getElementById('status').textContent = '❌ Error loading reCAPTCHA';
-        }
-
-        if (typeof grecaptcha !== 'undefined') {
-            onloadCallback();
-        } else {
-            window.onloadCallback = onloadCallback;
         }
     </script>
 </body>

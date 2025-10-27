@@ -32,43 +32,35 @@ export GEMINI_API_KEY="your-gemini-api-key-here"
 
 ## 📖 Usage
 
-### 1. Start Server (Terminal 1)
+### Run CLI Tool
 
-Server diperlukan untuk serve fakepage.html yang akan load reCAPTCHA:
-
-```bash
-npm run server
-```
-
-Server akan running di `http://localhost:8000`
-
-### 2. Run CLI Tool (Terminal 2)
-
-Jalankan CLI tool dengan sitekey dan domain:
+Jalankan CLI tool dengan sitekey dan target URL:
 
 ```bash
-node index.js --sitekey YOUR_SITEKEY
+node index.js --sitekey YOUR_SITEKEY --url TARGET_URL
 ```
 
 #### Options:
 
 - `-s, --sitekey <sitekey>` - **Required** - reCAPTCHA site key
-- `-d, --domain <domain>` - Domain untuk testing (default: localhost)
-- `-p, --port <port>` - Port untuk fakepage server (default: 8000)
+- `-u, --url <url>` - **Required** - Target URL (domain yang sebenarnya)
 - `--headless` - Run browser dalam headless mode (default: false)
 - `--debug` - Enable debug logging
 
 #### Contoh Penggunaan:
 
 ```bash
-# Menggunakan Google demo sitekey
-node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-
+# Menggunakan Google demo sitekey dengan demo page
+node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo
 
-# Dengan custom domain dan port
-node index.js --sitekey YOUR_SITEKEY --domain example.com --port 3000
+# Dengan custom sitekey dan domain
+node index.js --sitekey YOUR_SITEKEY --url https://example.com
 
-# Dengan debug mode
-node index.js --sitekey YOUR_SITEKEY --debug
+# Dengan headless mode untuk production
+node index.js --sitekey YOUR_SITEKEY --url https://example.com --headless
+
+# Dengan debug mode untuk troubleshooting
+node index.js --sitekey YOUR_SITEKEY --url https://example.com --debug
 ```
 
 ## 📸 Screenshots
@@ -78,15 +70,16 @@ Screenshots akan otomatis tersimpan di folder `screenshots/` dengan format:
 
 ## 🎯 Cara Kerja
 
-1. **Server Start** - HTTP server menyediakan fakepage.html
-2. **Browser Launch** - Puppeteer membuka browser (non-headless untuk monitoring)
-3. **Load reCAPTCHA** - Fakepage load reCAPTCHA dengan sitekey yang diberikan
-4. **Checkbox Click** - Tool mengklik checkbox reCAPTCHA
-5. **Challenge Detection** - CaptchaWatcher mendeteksi challenge yang muncul
-6. **AI Analysis** - Gemini menganalisis gambar dan menentukan tiles yang harus diklik
-7. **Tile Clicking** - Tool mengklik tiles yang diidentifikasi oleh AI
-8. **Verification** - Mengklik tombol verify
-9. **Token Extraction** - Token berhasil didapatkan!
+1. **Browser Launch** - Puppeteer membuka browser (non-headless untuk monitoring)
+2. **Navigate to Target** - Browser membuka URL target yang sebenarnya
+3. **HTML Injection** - Inject struktur HTML reCAPTCHA ke halaman target
+4. **reCAPTCHA Load** - reCAPTCHA widget di-render dengan sitekey dan domain yang cocok
+5. **Checkbox Click** - Tool mengklik checkbox reCAPTCHA
+6. **Challenge Detection** - CaptchaWatcher mendeteksi challenge yang muncul
+7. **AI Analysis** - Gemini menganalisis gambar dan menentukan tiles yang harus diklik
+8. **Tile Clicking** - Tool mengklik tiles yang diidentifikasi oleh AI
+9. **Verification** - Mengklik tombol verify
+10. **Token Extraction** - Token berhasil didapatkan!
 
 ## 📊 Output Example
 

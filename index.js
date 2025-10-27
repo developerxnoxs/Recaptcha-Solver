@@ -13,8 +13,7 @@ program
     .description('🤖 CLI tool untuk menyelesaikan reCAPTCHA v2 menggunakan AI')
     .version('1.0.0')
     .requiredOption('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
-    .option('-d, --domain <domain>', 'Domain untuk testing (default: localhost)', 'localhost')
-    .option('-p, --port <port>', 'Port untuk fakepage server (default: 8000)', '8000')
+    .requiredOption('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
     .option('--headless', 'Run browser dalam headless mode', false)
     .option('--debug', 'Enable debug logging', false)
     .parse(process.argv);
@@ -37,8 +36,7 @@ async function main() {
 
     logger.info('📋 Configuration:');
     logger.info(`   Sitekey: ${options.sitekey}`);
-    logger.info(`   Domain: ${options.domain}`);
-    logger.info(`   Port: ${options.port}`);
+    logger.info(`   Target URL: ${options.url}`);
     logger.info(`   Headless: ${options.headless}`);
     logger.info(`   Screenshots: ${screenshotDir}`);
     logger.info('');
@@ -56,14 +54,10 @@ async function main() {
 
     const resultTracker = new ResultTracker();
 
-    const fakepageUrl = `http://${options.domain}:${options.port}/fakepage.html?sitekey=${options.sitekey}`;
-
     logger.info('🚀 Starting browser...');
     const browser = await launchBrowser(options.headless);
     
     logger.info('✓ Browser launched');
-    logger.info('');
-    logger.info(`🌐 Opening fakepage: ${fakepageUrl}`);
     logger.info('');
 
     try {
@@ -76,13 +70,64 @@ async function main() {
 
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
 
-        logger.info('⏳ Loading page...');
-        await page.goto(fakepageUrl, {
+        logger.info(`🌐 Navigating to target URL: ${options.url}`);
+        await page.goto(options.url, {
             waitUntil: 'domcontentloaded',
             timeout: 30000
         });
+        logger.info('✓ Target page loaded');
 
-        logger.info('✓ Page loaded successfully');
+        logger.info('💉 Injecting reCAPTCHA HTML structure...');
+        await page.evaluate((sitekey) => {
+            const container = document.createElement('div');
+            container.innerHTML = `
+                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                            background: white; padding: 40px; border-radius: 10px; 
+                            box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
+                    <h2 style="text-align: center; margin-bottom: 20px;">🤖 reCAPTCHA Solver</h2>
+                    <div id="recaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
+                        <div id="recaptcha-element"></div>
+                    </div>
+                    <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
+                        Initializing...
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(container);
+            
+            window._recaptchaSitekey = sitekey;
+        }, options.sitekey);
+        logger.info('✓ HTML structure injected');
+
+        logger.info('💉 Injecting reCAPTCHA API script...');
+        await page.addScriptTag({
+            url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
+            type: 'text/javascript'
+        });
+
+        await page.evaluate(() => {
+            window.onRecaptchaLoad = function() {
+                console.log('reCAPTCHA API loaded!');
+                const sitekey = window._recaptchaSitekey;
+                grecaptcha.render('recaptcha-element', {
+                    'sitekey': sitekey,
+                    'callback': function(token) {
+                        console.log('✅ Token received:', token);
+                        document.getElementById('status').textContent = '✅ Success!';
+                    }
+                });
+                document.getElementById('status').textContent = '✅ reCAPTCHA loaded';
+                console.log('reCAPTCHA rendered with sitekey:', sitekey);
+            };
+        });
+
+        logger.info('⏳ Waiting for reCAPTCHA to render...');
+        await page.waitForFunction(() => {
+            const frames = Array.from(document.querySelectorAll('iframe'));
+            return frames.some(f => f.src.includes('api2/anchor'));
+        }, { timeout: 15000 });
+        
+        logger.info('✓ reCAPTCHA rendered successfully');
         logger.info('');
         logger.info('═══════════════════════════════════════════════════════════');
         logger.info('🎯 Starting CAPTCHA solving process...');
