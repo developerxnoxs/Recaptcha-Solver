@@ -31,23 +31,23 @@ args = "API Server"
 name = "Normal Mode"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "vnc"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode normal"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
 
 [[workflows.workflow]]
 name = "Inject Mode"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "vnc"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode inject"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
 
 [[workflows.workflow]]
 name = "API Server"
@@ -72,3 +72,7 @@ externalPort = 8000
 [[ports]]
 localPort = 33315
 externalPort = 80
+
+[[ports]]
+localPort = 46495
+externalPort = 3000
