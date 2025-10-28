@@ -47,17 +47,26 @@ node index.js --sitekey YOUR_SITEKEY --url TARGET_URL
 
 - `-s, --sitekey <sitekey>` - **Required** - reCAPTCHA site key
 - `-u, --url <url>` - **Required** - Target URL (domain yang sebenarnya)
+- `-m, --mode <mode>` - Mode operasi: `normal` atau `inject` (default: `normal`)
+  - `normal`: Mengunjungi domain dan menyelesaikan reCAPTCHA yang ada di halaman
+  - `inject`: Menghapus konten asli dan menginjeksi fake page dengan hanya reCAPTCHA
 - `--headless` - Run browser dalam headless mode (default: false)
 - `--debug` - Enable debug logging
 
 #### Contoh Penggunaan:
 
 ```bash
-# Menggunakan Google demo sitekey dengan demo page
+# Mode normal (default): Menggunakan reCAPTCHA yang ada di halaman
 node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo
 
-# Dengan custom sitekey dan domain
+# Mode inject: Mengunjungi domain dan menginjeksi fake page dengan reCAPTCHA
+node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode inject
+
+# Dengan custom sitekey dan domain (mode normal)
 node index.js --sitekey YOUR_SITEKEY --url https://example.com
+
+# Mode inject dengan custom sitekey
+node index.js --sitekey YOUR_SITEKEY --url https://example.com --mode inject
 
 # Dengan headless mode untuk production
 node index.js --sitekey YOUR_SITEKEY --url https://example.com --headless
@@ -73,6 +82,18 @@ Screenshots akan otomatis tersimpan di folder `screenshots/` dengan format:
 
 ## 🎯 Cara Kerja
 
+### Mode Normal (Default)
+1. **Browser Launch** - Puppeteer membuka browser (non-headless untuk monitoring)
+2. **Navigate to Target** - Browser membuka URL target yang sebenarnya
+3. **Detect reCAPTCHA** - Mendeteksi reCAPTCHA yang sudah ada di halaman
+4. **Checkbox Click** - Tool mengklik checkbox reCAPTCHA
+5. **Challenge Detection** - CaptchaWatcher mendeteksi challenge yang muncul
+6. **AI Analysis** - Gemini menganalisis gambar dan menentukan tiles yang harus diklik
+7. **Tile Clicking** - Tool mengklik tiles yang diidentifikasi oleh AI
+8. **Verification** - Mengklik tombol verify
+9. **Token Extraction** - Token berhasil didapatkan!
+
+### Mode Inject
 1. **Browser Launch** - Puppeteer membuka browser (non-headless untuk monitoring)
 2. **Navigate to Target** - Browser membuka URL target yang sebenarnya
 3. **Clear Original Content** - Menghapus semua konten HTML asli dari halaman
