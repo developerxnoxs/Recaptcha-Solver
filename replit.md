@@ -1,10 +1,13 @@
-# reCAPTCHA v2 AI Solver - CLI Tool
+# reCAPTCHA v2 AI Solver - CLI Tool & API
 
 ## Overview
 
-This is a command-line tool that automatically solves reCAPTCHA v2 challenges using Google's Gemini AI for visual recognition. The tool operates in non-headless mode, allowing users to watch the solving process in real-time. It uses browser automation to interact with reCAPTCHA challenges, captures screenshots at various stages, and employs AI to identify and select correct challenge images.
+This is a command-line tool and API service that automatically solves reCAPTCHA v2 challenges using Google's Gemini AI for visual recognition. The tool can operate in two modes:
 
-The system is designed as a CLI application with real-time monitoring capabilities, automatic screenshot capture, token verification, and live statistics tracking of solving attempts.
+1. **CLI Mode**: Command-line interface for direct solving with real-time monitoring
+2. **API Mode**: HTTP REST API server for programmatic access
+
+The system uses browser automation to interact with reCAPTCHA challenges, captures screenshots at various stages, and employs AI to identify and select correct challenge images. In non-headless mode, users can watch the solving process in real-time.
 
 ## User Preferences
 
@@ -87,19 +90,81 @@ Preferred communication style: Simple, everyday language.
 
 **Solution**: Commander.js-based CLI with required and optional parameters.
 
-**Required Parameters**:
-- `--sitekey`: The reCAPTCHA site key to solve
-- `--url`: Target domain where the captcha should be solved
-
-**Optional Parameters**:
+**CLI Parameters**:
+- `--sitekey`: The reCAPTCHA site key to solve (required in CLI mode)
+- `--url`: Target domain where the captcha should be solved (required in CLI mode)
 - `--mode`: Operation mode (default: `normal`) - determines how the page is prepared
   - `normal`: Visits the domain and solves the existing reCAPTCHA on the page
   - `inject`: Clears the original page content and injects a fake page with only reCAPTCHA widget
 - `--screenshot`: Enable screenshot capture (default: `false`) - when enabled, saves all challenge screenshots to disk
 - `--headless`: Allows running in headless mode when monitoring isn't needed
 - `--debug`: Enables verbose logging for troubleshooting
+- `--api`: Run as API server on port 5000 (overrides all other options)
+
+### API Server
+
+**Problem**: Need programmatic access to CAPTCHA solving for integration with other applications.
+
+**Solution**: Express.js-based REST API server with JSON request/response format.
+
+**API Configuration**:
+- **Port**: 5000 (default, configurable via PORT environment variable)
+- **Mode**: Automatically uses inject mode and non-headless for all API requests
+- **CORS**: Enabled for cross-origin requests
+
+**Endpoints**:
+
+1. **GET /** - API information and health check
+   - Returns server status, version, and available endpoints
+   
+2. **POST /solve** - Solve reCAPTCHA challenge
+   - **Request Body**:
+     ```json
+     {
+       "sitekey": "6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-",
+       "pageurl": "https://www.google.com/recaptcha/api2/demo"
+     }
+     ```
+   - **Success Response (200)**:
+     ```json
+     {
+       "success": true,
+       "token": "03AGdBq24PBCbwiDRaS9a...",
+       "duration": 12.45,
+       "sitekey": "6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-",
+       "pageurl": "https://www.google.com/recaptcha/api2/demo"
+     }
+     ```
+   - **Error Response (400/500)**:
+     ```json
+     {
+       "success": false,
+       "error": "Error type",
+       "message": "Detailed error message"
+     }
+     ```
+
+**API Usage Example**:
+```bash
+# Start API server
+node index.js --api
+
+# Make a solve request
+curl -X POST http://localhost:5000/solve \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sitekey": "6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-",
+    "pageurl": "https://www.google.com/recaptcha/api2/demo"
+  }'
+```
 
 **Recent Changes** (October 28, 2025):
+- **API Mode Added**: New `--api` flag to run as HTTP REST API server
+  - Listens on port 5000 with CORS enabled
+  - POST /solve endpoint accepts `sitekey` and `pageurl` parameters
+  - Automatically uses inject mode and non-headless for API requests
+  - Returns JSON response with token, duration, and status
+  - Created "API Server" workflow for easy testing
 - Added `--mode` option with two modes: `normal` (default) and `inject`
   - Normal mode: Solves reCAPTCHA on the existing page without modification
   - Inject mode: Replaces page content with clean reCAPTCHA widget
@@ -107,7 +172,7 @@ Preferred communication style: Simple, everyday language.
   - When disabled (default): Screenshots taken for AI analysis are automatically deleted after processing
   - When enabled: All screenshots saved to `screenshots/` folder for debugging and documentation
 - Created separate workflows with VNC GUI for visual monitoring of both modes
-- Updated README with comprehensive documentation including usage guide, troubleshooting, FAQ, and best practices
+- Updated documentation with comprehensive API usage guide and examples
 
 ### Screenshot Management
 

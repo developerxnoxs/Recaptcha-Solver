@@ -12,15 +12,27 @@ program
     .name('recaptcha-solver')
     .description('🤖 CLI tool untuk menyelesaikan reCAPTCHA v2 menggunakan AI')
     .version('1.0.0')
-    .requiredOption('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
-    .requiredOption('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
+    .option('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
+    .option('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
     .option('-m, --mode <mode>', 'Mode operasi: normal atau inject (default: normal)', 'normal')
     .option('--screenshot', 'Enable screenshot capture (default: false)', false)
     .option('--headless', 'Run browser dalam headless mode', false)
     .option('--debug', 'Enable debug logging', false)
+    .option('--api', 'Run as API server on port 5000', false)
     .parse(process.argv);
 
 const options = program.opts();
+
+if (options.api) {
+    console.log('🚀 Starting API Server mode...');
+    require('./api-server');
+    return;
+}
+
+if (!options.sitekey || !options.url) {
+    console.error('❌ Error: --sitekey dan --url wajib diisi (kecuali mode --api)');
+    process.exit(1);
+}
 
 if (!['normal', 'inject'].includes(options.mode)) {
     console.error('❌ Error: Mode harus "normal" atau "inject"');
