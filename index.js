@@ -15,6 +15,7 @@ program
     .requiredOption('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
     .requiredOption('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
     .option('-m, --mode <mode>', 'Mode operasi: normal atau inject (default: normal)', 'normal')
+    .option('--screenshot', 'Enable screenshot capture (default: false)', false)
     .option('--headless', 'Run browser dalam headless mode', false)
     .option('--debug', 'Enable debug logging', false)
     .parse(process.argv);
@@ -45,7 +46,10 @@ async function main() {
     logger.info(`   Target URL: ${options.url}`);
     logger.info(`   Mode: ${options.mode}`);
     logger.info(`   Headless: ${options.headless}`);
-    logger.info(`   Screenshots: ${screenshotDir}`);
+    logger.info(`   Screenshot: ${options.screenshot ? 'enabled' : 'disabled'}`);
+    if (options.screenshot) {
+        logger.info(`   Screenshot dir: ${screenshotDir}`);
+    }
     logger.info('');
 
     const apiKey = process.env.GEMINI_API_KEY;
@@ -151,7 +155,7 @@ async function main() {
         logger.info('');
 
         const startTime = Date.now();
-        const token = await solveCaptchaChallenge(page, apiKey, screenshotDir);
+        const token = await solveCaptchaChallenge(page, apiKey, screenshotDir, options.screenshot);
         const endTime = Date.now();
         const duration = ((endTime - startTime) / 1000).toFixed(2);
 
