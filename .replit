@@ -17,33 +17,33 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "CAPTCHA Solver Test"
+args = "Normal Mode"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "CAPTCHA Solver Demo"
+args = "Inject Mode"
 
 [[workflows.workflow]]
-name = "CAPTCHA Solver Test"
+name = "Normal Mode"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo"
+args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode normal"
 
 [workflows.workflow.metadata]
 outputType = "vnc"
 
 [[workflows.workflow]]
-name = "CAPTCHA Solver Demo"
+name = "Inject Mode"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo"
+args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode inject"
 
 [workflows.workflow.metadata]
-outputType = "console"
+outputType = "vnc"
 
 [[ports]]
 localPort = 8000
