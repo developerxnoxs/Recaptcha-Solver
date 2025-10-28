@@ -17,18 +17,18 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "CLI Info"
+args = "CAPTCHA Solver Test"
 
 [[workflows.workflow]]
-name = "CLI Info"
+name = "CAPTCHA Solver Test"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node info.js"
+args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo"
 
 [workflows.workflow.metadata]
-outputType = "console"
+outputType = "vnc"
 
 [[ports]]
 localPort = 8000
