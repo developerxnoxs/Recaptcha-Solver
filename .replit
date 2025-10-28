@@ -17,16 +17,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "HTTP Server"
+args = "CLI Info"
 
 [[workflows.workflow]]
-name = "HTTP Server"
+name = "CLI Info"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run server"
-waitForPort = 8000
+args = "node info.js"
 
 [workflows.workflow.metadata]
 outputType = "console"
@@ -34,3 +33,7 @@ outputType = "console"
 [[ports]]
 localPort = 8000
 externalPort = 8000
+
+[[ports]]
+localPort = 33315
+externalPort = 80

@@ -34,7 +34,10 @@ export GEMINI_API_KEY="your-gemini-api-key-here"
 
 ### Run CLI Tool
 
-Jalankan CLI tool dengan sitekey dan target URL:
+Jalankan CLI tool dengan sitekey dan target URL. Tool ini akan:
+1. Mengunjungi domain yang ditentukan
+2. Menghapus konten HTML asli
+3. Inject fake page dengan hanya reCAPTCHA saja
 
 ```bash
 node index.js --sitekey YOUR_SITEKEY --url TARGET_URL
@@ -72,14 +75,15 @@ Screenshots akan otomatis tersimpan di folder `screenshots/` dengan format:
 
 1. **Browser Launch** - Puppeteer membuka browser (non-headless untuk monitoring)
 2. **Navigate to Target** - Browser membuka URL target yang sebenarnya
-3. **HTML Injection** - Inject struktur HTML reCAPTCHA ke halaman target
-4. **reCAPTCHA Load** - reCAPTCHA widget di-render dengan sitekey dan domain yang cocok
-5. **Checkbox Click** - Tool mengklik checkbox reCAPTCHA
-6. **Challenge Detection** - CaptchaWatcher mendeteksi challenge yang muncul
-7. **AI Analysis** - Gemini menganalisis gambar dan menentukan tiles yang harus diklik
-8. **Tile Clicking** - Tool mengklik tiles yang diidentifikasi oleh AI
-9. **Verification** - Mengklik tombol verify
-10. **Token Extraction** - Token berhasil didapatkan!
+3. **Clear Original Content** - Menghapus semua konten HTML asli dari halaman
+4. **Inject Fake Page** - Inject halaman baru dengan hanya reCAPTCHA widget
+5. **reCAPTCHA Load** - reCAPTCHA widget di-render dengan sitekey pada domain target
+6. **Checkbox Click** - Tool mengklik checkbox reCAPTCHA
+7. **Challenge Detection** - CaptchaWatcher mendeteksi challenge yang muncul
+8. **AI Analysis** - Gemini menganalisis gambar dan menentukan tiles yang harus diklik
+9. **Tile Clicking** - Tool mengklik tiles yang diidentifikasi oleh AI
+10. **Verification** - Mengklik tombol verify
+11. **Token Extraction** - Token berhasil didapatkan!
 
 ## 📊 Output Example
 
@@ -142,8 +146,7 @@ Screenshots akan otomatis tersimpan di folder `screenshots/` dengan format:
 ```
 .
 ├── index.js                 # CLI entry point
-├── server.js               # HTTP server untuk fakepage
-├── fakepage.html          # Template HTML untuk load reCAPTCHA
+├── info.js                 # Usage information display
 ├── lib/
 │   ├── captcha-solver.js  # Main solver logic
 │   ├── captcha-watcher.js # Real-time monitoring
@@ -172,12 +175,6 @@ Tool menggunakan Puppeteer dengan stealth plugin untuk menghindari deteksi bot. 
 Set environment variable:
 ```bash
 export GEMINI_API_KEY="your-api-key"
-```
-
-### "Cannot connect to server"
-Pastikan server running di terminal lain:
-```bash
-npm run server
 ```
 
 ### "Browser not found"

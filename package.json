@@ -7,7 +7,6 @@
     "recaptcha-solver": "./index.js"
   },
   "scripts": {
-    "server": "node server.js",
     "solve": "node index.js"
   },
   "keywords": ["recaptcha", "solver", "ai", "gemini", "cli"],

@@ -77,10 +77,16 @@ async function main() {
         });
         logger.info('✓ Target page loaded');
 
-        logger.info('💉 Injecting reCAPTCHA HTML structure...');
+        logger.info('🗑️  Clearing original page content...');
+        await page.evaluate(() => {
+            document.body.innerHTML = '';
+            document.head.innerHTML = '<meta charset="UTF-8"><title>reCAPTCHA Solver</title>';
+        });
+        logger.info('✓ Original content cleared');
+
+        logger.info('💉 Injecting fake page with reCAPTCHA...');
         await page.evaluate((sitekey) => {
-            const container = document.createElement('div');
-            container.innerHTML = `
+            document.body.innerHTML = `
                 <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
                             background: white; padding: 40px; border-radius: 10px; 
                             box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
@@ -93,11 +99,10 @@ async function main() {
                     </div>
                 </div>
             `;
-            document.body.appendChild(container);
             
             window._recaptchaSitekey = sitekey;
         }, options.sitekey);
-        logger.info('✓ HTML structure injected');
+        logger.info('✓ Fake page injected');
 
         logger.info('💉 Injecting reCAPTCHA API script...');
         await page.addScriptTag({
