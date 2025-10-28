@@ -14,11 +14,17 @@ program
     .version('1.0.0')
     .requiredOption('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
     .requiredOption('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
+    .option('-m, --mode <mode>', 'Mode operasi: normal atau inject (default: normal)', 'normal')
     .option('--headless', 'Run browser dalam headless mode', false)
     .option('--debug', 'Enable debug logging', false)
     .parse(process.argv);
 
 const options = program.opts();
+
+if (!['normal', 'inject'].includes(options.mode)) {
+    console.error('❌ Error: Mode harus "normal" atau "inject"');
+    process.exit(1);
+}
 
 const logger = createLogger({ level: options.debug ? 'debug' : 'info' });
 setLogger(logger);
@@ -37,6 +43,7 @@ async function main() {
     logger.info('📋 Configuration:');
     logger.info(`   Sitekey: ${options.sitekey}`);
     logger.info(`   Target URL: ${options.url}`);
+    logger.info(`   Mode: ${options.mode}`);
     logger.info(`   Headless: ${options.headless}`);
     logger.info(`   Screenshots: ${screenshotDir}`);
     logger.info('');
@@ -77,54 +84,58 @@ async function main() {
         });
         logger.info('✓ Target page loaded');
 
-        logger.info('🗑️  Clearing original page content...');
-        await page.evaluate(() => {
-            document.body.innerHTML = '';
-            document.head.innerHTML = '<meta charset="UTF-8"><title>reCAPTCHA Solver</title>';
-        });
-        logger.info('✓ Original content cleared');
+        if (options.mode === 'inject') {
+            logger.info('🗑️  Clearing original page content...');
+            await page.evaluate(() => {
+                document.body.innerHTML = '';
+                document.head.innerHTML = '<meta charset="UTF-8"><title>reCAPTCHA Solver</title>';
+            });
+            logger.info('✓ Original content cleared');
 
-        logger.info('💉 Injecting fake page with reCAPTCHA...');
-        await page.evaluate((sitekey) => {
-            document.body.innerHTML = `
-                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-                            background: white; padding: 40px; border-radius: 10px; 
-                            box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
-                    <h2 style="text-align: center; margin-bottom: 20px;">🤖 reCAPTCHA Solver</h2>
-                    <div id="recaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
-                        <div id="recaptcha-element"></div>
+            logger.info('💉 Injecting fake page with reCAPTCHA...');
+            await page.evaluate((sitekey) => {
+                document.body.innerHTML = `
+                    <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                                background: white; padding: 40px; border-radius: 10px; 
+                                box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
+                        <h2 style="text-align: center; margin-bottom: 20px;">🤖 reCAPTCHA Solver</h2>
+                        <div id="recaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
+                            <div id="recaptcha-element"></div>
+                        </div>
+                        <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
+                            Initializing...
+                        </div>
                     </div>
-                    <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
-                        Initializing...
-                    </div>
-                </div>
-            `;
-            
-            window._recaptchaSitekey = sitekey;
-        }, options.sitekey);
-        logger.info('✓ Fake page injected');
+                `;
+                
+                window._recaptchaSitekey = sitekey;
+            }, options.sitekey);
+            logger.info('✓ Fake page injected');
 
-        logger.info('💉 Injecting reCAPTCHA API script...');
-        await page.addScriptTag({
-            url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
-            type: 'text/javascript'
-        });
+            logger.info('💉 Injecting reCAPTCHA API script...');
+            await page.addScriptTag({
+                url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
+                type: 'text/javascript'
+            });
 
-        await page.evaluate(() => {
-            window.onRecaptchaLoad = function() {
-                console.log('reCAPTCHA API loaded!');
-                const sitekey = window._recaptchaSitekey;
-                grecaptcha.render('recaptcha-element', {
-                    'sitekey': sitekey,
-                    'callback': function(token) {
-                        console.log('✅ Token received:', token);
-                        document.getElementById('status').textContent = '✅ Success!';
-                    }
-                });
-                document.getElementById('status').textContent = '✅ reCAPTCHA loaded';
-                console.log('reCAPTCHA rendered with sitekey:', sitekey);
-            };
-        });
+            await page.evaluate(() => {
+                window.onRecaptchaLoad = function() {
+                    console.log('reCAPTCHA API loaded!');
+                    const sitekey = window._recaptchaSitekey;
+                    grecaptcha.render('recaptcha-element', {
+                        'sitekey': sitekey,
+                        'callback': function(token) {
+                            console.log('✅ Token received:', token);
+                            document.getElementById('status').textContent = '✅ Success!';
+                        }
+                    });
+                    document.getElementById('status').textContent = '✅ reCAPTCHA loaded';
+                    console.log('reCAPTCHA rendered with sitekey:', sitekey);
+                };
+            });
+        } else {
+            logger.info('🔍 Mode normal: menggunakan reCAPTCHA yang ada di halaman...');
+        }
 
         logger.info('⏳ Waiting for reCAPTCHA to render...');
         await page.waitForFunction(() => {
