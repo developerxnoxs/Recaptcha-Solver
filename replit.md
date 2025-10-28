@@ -95,14 +95,19 @@ Preferred communication style: Simple, everyday language.
 - `--mode`: Operation mode (default: `normal`) - determines how the page is prepared
   - `normal`: Visits the domain and solves the existing reCAPTCHA on the page
   - `inject`: Clears the original page content and injects a fake page with only reCAPTCHA widget
+- `--screenshot`: Enable screenshot capture (default: `false`) - when enabled, saves all challenge screenshots to disk
 - `--headless`: Allows running in headless mode when monitoring isn't needed
 - `--debug`: Enables verbose logging for troubleshooting
 
 **Recent Changes** (October 28, 2025):
 - Added `--mode` option with two modes: `normal` (default) and `inject`
-- Normal mode: Solves reCAPTCHA on the existing page without modification
-- Inject mode: Replaces page content with clean reCAPTCHA widget
+  - Normal mode: Solves reCAPTCHA on the existing page without modification
+  - Inject mode: Replaces page content with clean reCAPTCHA widget
+- Added `--screenshot` option (default: false) for optional screenshot capture
+  - When disabled (default): Screenshots taken for AI analysis are automatically deleted after processing
+  - When enabled: All screenshots saved to `screenshots/` folder for debugging and documentation
 - Created separate workflows with VNC GUI for visual monitoring of both modes
+- Updated README with comprehensive documentation including usage guide, troubleshooting, FAQ, and best practices
 
 ### Screenshot Management
 
