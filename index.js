@@ -2,7 +2,7 @@
 
 const { Command } = require('commander');
 const path = require('path');
-const { launchBrowser, solveCaptchaChallenge, setLogger } = require('./lib/captcha-solver');
+const { launchBrowser, solveCaptchaWithStrategy, setLogger } = require('./lib/captcha-solver');
 const ResultTracker = require('./lib/result-tracker');
 const createLogger = require('./utils/logger');
 
@@ -15,6 +15,7 @@ program
     .option('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
     .option('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
     .option('-m, --mode <mode>', 'Mode operasi: normal atau inject (default: normal)', 'normal')
+    .option('--audio', 'Use audio challenge instead of image challenge', false)
     .option('--screenshot', 'Enable screenshot capture (default: false)', false)
     .option('--headless', 'Run browser dalam headless mode', false)
     .option('--debug', 'Enable debug logging', false)
@@ -57,6 +58,7 @@ async function main() {
     logger.info(`   Sitekey: ${options.sitekey}`);
     logger.info(`   Target URL: ${options.url}`);
     logger.info(`   Mode: ${options.mode}`);
+    logger.info(`   Audio Challenge: ${options.audio ? 'enabled' : 'disabled'}`);
     logger.info(`   Headless: ${options.headless}`);
     logger.info(`   Screenshot: ${options.screenshot ? 'enabled' : 'disabled'}`);
     if (options.screenshot) {
@@ -167,7 +169,7 @@ async function main() {
         logger.info('');
 
         const startTime = Date.now();
-        const token = await solveCaptchaChallenge(page, apiKey, screenshotDir, options.screenshot);
+        const token = await solveCaptchaWithStrategy(page, apiKey, screenshotDir, options.screenshot, options.audio);
         const endTime = Date.now();
         const duration = ((endTime - startTime) / 1000).toFixed(2);
 
