@@ -105,53 +105,27 @@ async function main() {
         if (options.mode === 'inject') {
             logger.info('🗑️  Clearing original page content...');
             await page.evaluate(() => {
-                document.body.innerHTML = '';
-                document.head.innerHTML = '<meta charset="UTF-8"><title>hCaptcha Solver</title>';
+                document.documentElement.innerHTML = '';
             });
             logger.info('✓ Original content cleared');
 
             logger.info('💉 Injecting fake page with hCaptcha...');
             await page.evaluate((sitekey) => {
-                document.body.innerHTML = `
-                    <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-                                background: white; padding: 40px; border-radius: 10px; 
-                                box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
-                        <h2 style="text-align: center; margin-bottom: 20px;">🤖 hCaptcha Solver</h2>
-                        <div id="hcaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
-                            <div id="hcaptcha-element"></div>
-                        </div>
-                        <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
-                            Initializing...
-                        </div>
-                    </div>
-                `;
-                
-                window._hcaptchaSitekey = sitekey;
+                document.documentElement.innerHTML = `
+<html>
+<head>
+    <title>Hcaptcha Solver</title>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+    <form action="/submit" method="POST">
+        <div class="h-captcha" data-sitekey="${sitekey}"></div>
+    </form>
+</body>
+</html>
+                `.trim();
             }, options.sitekey);
-            logger.info('✓ Fake page injected');
-
-            logger.info('💉 Setting up hCaptcha callback...');
-            await page.evaluate(() => {
-                window.onHcaptchaLoad = function() {
-                    console.log('hCaptcha API loaded!');
-                    const sitekey = window._hcaptchaSitekey;
-                    hcaptcha.render('hcaptcha-element', {
-                        'sitekey': sitekey,
-                        'callback': function(token) {
-                            console.log('✅ Token received:', token);
-                            document.getElementById('status').textContent = '✅ Success!';
-                        }
-                    });
-                    document.getElementById('status').textContent = '✅ hCaptcha loaded';
-                    console.log('hCaptcha rendered with sitekey:', sitekey);
-                };
-            });
-
-            logger.info('💉 Injecting hCaptcha API script...');
-            await page.addScriptTag({
-                url: 'https://js.hcaptcha.com/1/api.js?onload=onHcaptchaLoad&render=explicit',
-                type: 'text/javascript'
-            });
+            logger.info('✓ Fake page injected with sitekey: ' + options.sitekey);
         } else {
             logger.info('🔍 Mode normal: menggunakan hCaptcha yang ada di halaman...');
         }
