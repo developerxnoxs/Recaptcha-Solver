@@ -21,15 +21,15 @@ const screenshotDir = path.join(__dirname, 'screenshots');
 app.get('/', (req, res) => {
     res.json({
         status: 'online',
-        service: 'reCAPTCHA v2 AI Solver API',
+        service: 'hCaptcha AI Solver API',
         version: '1.0.0',
         endpoints: {
             solve: {
                 method: 'POST',
                 path: '/solve',
-                description: 'Solve reCAPTCHA v2 challenge',
+                description: 'Solve hCaptcha challenge',
                 parameters: {
-                    sitekey: 'reCAPTCHA site key (required)',
+                    sitekey: 'hCaptcha site key (required)',
                     pageurl: 'Target URL/domain (required)'
                 }
             }
@@ -92,19 +92,19 @@ app.post('/solve', async (req, res) => {
         logger.info('🗑️  Clearing original page content...');
         await page.evaluate(() => {
             document.body.innerHTML = '';
-            document.head.innerHTML = '<meta charset="UTF-8"><title>reCAPTCHA Solver API</title>';
+            document.head.innerHTML = '<meta charset="UTF-8"><title>hCaptcha Solver API</title>';
         });
         logger.info('✓ Original content cleared');
 
-        logger.info('💉 Injecting reCAPTCHA widget...');
+        logger.info('💉 Injecting hCaptcha widget...');
         await page.evaluate((sitekey) => {
             document.body.innerHTML = `
                 <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
                             background: white; padding: 40px; border-radius: 10px; 
                             box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
-                    <h2 style="text-align: center; margin-bottom: 20px;">🤖 reCAPTCHA Solver API</h2>
-                    <div id="recaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
-                        <div id="recaptcha-element"></div>
+                    <h2 style="text-align: center; margin-bottom: 20px;">🤖 hCaptcha Solver API</h2>
+                    <div id="hcaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
+                        <div id="hcaptcha-element"></div>
                     </div>
                     <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
                         Initializing...
@@ -112,39 +112,39 @@ app.post('/solve', async (req, res) => {
                 </div>
             `;
             
-            window._recaptchaSitekey = sitekey;
+            window._hcaptchaSitekey = sitekey;
         }, sitekey);
         logger.info('✓ Widget injected');
 
-        logger.info('💉 Injecting reCAPTCHA API script...');
+        logger.info('💉 Injecting hCaptcha API script...');
         await page.addScriptTag({
-            url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
+            url: 'https://js.hcaptcha.com/1/api.js?onload=onHcaptchaLoad&render=explicit',
             type: 'text/javascript'
         });
 
         await page.evaluate(() => {
-            window.onRecaptchaLoad = function() {
-                console.log('reCAPTCHA API loaded!');
-                const sitekey = window._recaptchaSitekey;
-                grecaptcha.render('recaptcha-element', {
+            window.onHcaptchaLoad = function() {
+                console.log('hCaptcha API loaded!');
+                const sitekey = window._hcaptchaSitekey;
+                hcaptcha.render('hcaptcha-element', {
                     'sitekey': sitekey,
                     'callback': function(token) {
                         console.log('✅ Token received:', token);
                         document.getElementById('status').textContent = '✅ Success!';
                     }
                 });
-                document.getElementById('status').textContent = '✅ reCAPTCHA loaded';
-                console.log('reCAPTCHA rendered with sitekey:', sitekey);
+                document.getElementById('status').textContent = '✅ hCaptcha loaded';
+                console.log('hCaptcha rendered with sitekey:', sitekey);
             };
         });
 
-        logger.info('⏳ Waiting for reCAPTCHA to render...');
+        logger.info('⏳ Waiting for hCaptcha to render...');
         await page.waitForFunction(() => {
             const frames = Array.from(document.querySelectorAll('iframe'));
-            return frames.some(f => f.src.includes('api2/anchor'));
+            return frames.some(f => f.src.includes('hcaptcha.com'));
         }, { timeout: 15000 });
         
-        logger.info('✓ reCAPTCHA rendered successfully');
+        logger.info('✓ hCaptcha rendered successfully');
         logger.info('');
         logger.info('🎯 Starting CAPTCHA solving process...');
 
@@ -201,7 +201,7 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`
 ╔════════════════════════════════════════════════════════════╗
 ║                                                            ║
-║        🤖 reCAPTCHA v2 AI Solver - API Server              ║
+║        🤖 hCaptcha AI Solver - API Server                  ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
 `);
@@ -209,7 +209,7 @@ app.listen(PORT, '0.0.0.0', () => {
     logger.info('');
     logger.info('📋 Available Endpoints:');
     logger.info(`   GET  / - API information`);
-    logger.info(`   POST /solve - Solve reCAPTCHA (sitekey, pageurl)`);
+    logger.info(`   POST /solve - Solve hCaptcha (sitekey, pageurl)`);
     logger.info('');
     logger.info('🔑 API Key Status: ' + (process.env.GEMINI_API_KEY ? '✓ Loaded' : '✗ Missing'));
     logger.info('');

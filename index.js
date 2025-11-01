@@ -9,10 +9,10 @@ const createLogger = require('./utils/logger');
 const program = new Command();
 
 program
-    .name('recaptcha-solver')
-    .description('🤖 CLI tool untuk menyelesaikan reCAPTCHA v2 menggunakan AI')
+    .name('hcaptcha-solver')
+    .description('🤖 CLI tool untuk menyelesaikan hCaptcha menggunakan AI')
     .version('1.0.0')
-    .option('-s, --sitekey <sitekey>', 'reCAPTCHA site key')
+    .option('-s, --sitekey <sitekey>', 'hCaptcha site key')
     .option('-u, --url <url>', 'Target URL (domain yang sebenarnya)')
     .option('-m, --mode <mode>', 'Mode operasi: normal atau inject (default: normal)', 'normal')
     .option('--audio', 'Use audio challenge instead of image challenge', false)
@@ -49,7 +49,7 @@ async function main() {
     console.log(`
 ╔════════════════════════════════════════════════════════════╗
 ║                                                            ║
-║        🤖 reCAPTCHA v2 AI Solver - CLI Tool                ║
+║        🤖 hCaptcha AI Solver - CLI Tool                    ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
 `);
@@ -106,19 +106,19 @@ async function main() {
             logger.info('🗑️  Clearing original page content...');
             await page.evaluate(() => {
                 document.body.innerHTML = '';
-                document.head.innerHTML = '<meta charset="UTF-8"><title>reCAPTCHA Solver</title>';
+                document.head.innerHTML = '<meta charset="UTF-8"><title>hCaptcha Solver</title>';
             });
             logger.info('✓ Original content cleared');
 
-            logger.info('💉 Injecting fake page with reCAPTCHA...');
+            logger.info('💉 Injecting fake page with hCaptcha...');
             await page.evaluate((sitekey) => {
                 document.body.innerHTML = `
                     <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
                                 background: white; padding: 40px; border-radius: 10px; 
                                 box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
-                        <h2 style="text-align: center; margin-bottom: 20px;">🤖 reCAPTCHA Solver</h2>
-                        <div id="recaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
-                            <div id="recaptcha-element"></div>
+                        <h2 style="text-align: center; margin-bottom: 20px;">🤖 hCaptcha Solver</h2>
+                        <div id="hcaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
+                            <div id="hcaptcha-element"></div>
                         </div>
                         <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
                             Initializing...
@@ -126,43 +126,43 @@ async function main() {
                     </div>
                 `;
                 
-                window._recaptchaSitekey = sitekey;
+                window._hcaptchaSitekey = sitekey;
             }, options.sitekey);
             logger.info('✓ Fake page injected');
 
-            logger.info('💉 Setting up reCAPTCHA callback...');
+            logger.info('💉 Setting up hCaptcha callback...');
             await page.evaluate(() => {
-                window.onRecaptchaLoad = function() {
-                    console.log('reCAPTCHA API loaded!');
-                    const sitekey = window._recaptchaSitekey;
-                    grecaptcha.render('recaptcha-element', {
+                window.onHcaptchaLoad = function() {
+                    console.log('hCaptcha API loaded!');
+                    const sitekey = window._hcaptchaSitekey;
+                    hcaptcha.render('hcaptcha-element', {
                         'sitekey': sitekey,
                         'callback': function(token) {
                             console.log('✅ Token received:', token);
                             document.getElementById('status').textContent = '✅ Success!';
                         }
                     });
-                    document.getElementById('status').textContent = '✅ reCAPTCHA loaded';
-                    console.log('reCAPTCHA rendered with sitekey:', sitekey);
+                    document.getElementById('status').textContent = '✅ hCaptcha loaded';
+                    console.log('hCaptcha rendered with sitekey:', sitekey);
                 };
             });
 
-            logger.info('💉 Injecting reCAPTCHA API script...');
+            logger.info('💉 Injecting hCaptcha API script...');
             await page.addScriptTag({
-                url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
+                url: 'https://js.hcaptcha.com/1/api.js?onload=onHcaptchaLoad&render=explicit',
                 type: 'text/javascript'
             });
         } else {
-            logger.info('🔍 Mode normal: menggunakan reCAPTCHA yang ada di halaman...');
+            logger.info('🔍 Mode normal: menggunakan hCaptcha yang ada di halaman...');
         }
 
-        logger.info('⏳ Waiting for reCAPTCHA to render...');
+        logger.info('⏳ Waiting for hCaptcha to render...');
         await page.waitForFunction(() => {
             const frames = Array.from(document.querySelectorAll('iframe'));
-            return frames.some(f => f.src.includes('api2/anchor'));
+            return frames.some(f => f.src.includes('hcaptcha.com'));
         }, { timeout: 15000 });
         
-        logger.info('✓ reCAPTCHA rendered successfully');
+        logger.info('✓ hCaptcha rendered successfully');
         logger.info('');
         logger.info('═══════════════════════════════════════════════════════════');
         logger.info('🎯 Starting CAPTCHA solving process...');

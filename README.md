@@ -1,8 +1,8 @@
-# 🤖 reCAPTCHA v2 AI Solver - CLI Tool
+# 🤖 hCaptcha AI Solver - CLI Tool
 
-> 🚀 Solusi otomatis untuk menyelesaikan reCAPTCHA v2 menggunakan kekuatan AI!
+> 🚀 Solusi otomatis untuk menyelesaikan hCaptcha menggunakan kekuatan AI!
 
-CLI tool canggih yang menggunakan Google Gemini AI untuk menyelesaikan reCAPTCHA v2 secara otomatis. Anda bisa memantau seluruh proses secara real-time melalui browser yang terbuka atau VNC GUI.
+CLI tool canggih yang menggunakan Google Gemini AI untuk menyelesaikan hCaptcha secara otomatis. Anda bisa memantau seluruh proses secara real-time melalui browser yang terbuka atau VNC GUI.
 
 ---
 
@@ -45,7 +45,7 @@ git clone <repository-url>
 
 ### Step 2: Install Dependencies
 ```bash
-cd recaptcha-solver-cli
+cd hcaptcha-solver-cli
 npm install
 ```
 
@@ -96,7 +96,7 @@ node index.js --sitekey <SITEKEY> --url <URL>
 
 | Parameter | Alias | Type | Required | Default | Deskripsi |
 |-----------|-------|------|----------|---------|-----------|
-| `--sitekey` | `-s` | string | ✅ Yes | - | reCAPTCHA site key yang akan di-solve |
+| `--sitekey` | `-s` | string | ✅ Yes | - | hCaptcha site key yang akan di-solve |
 | `--url` | `-u` | string | ✅ Yes | - | Target URL domain (e.g., `https://example.com`) |
 | `--mode` | `-m` | string | ❌ No | `normal` | Mode operasi: `normal` atau `inject` |
 | `--screenshot` | - | boolean | ❌ No | `false` | Enable screenshot capture |
@@ -108,41 +108,41 @@ node index.js --sitekey <SITEKEY> --url <URL>
 ### 🎭 Perbedaan Mode Normal vs Inject
 
 #### 📌 Mode Normal (Default)
-**Kapan digunakan:** Ketika halaman sudah memiliki reCAPTCHA dan Anda ingin solve di halaman aslinya.
+**Kapan digunakan:** Ketika halaman sudah memiliki hCaptcha dan Anda ingin solve di halaman aslinya.
 
 **Cara kerja:**
 1. ✅ Browser membuka URL target
-2. ✅ Mendeteksi reCAPTCHA yang sudah ada di halaman
+2. ✅ Mendeteksi hCaptcha yang sudah ada di halaman
 3. ✅ Langsung solve tanpa modifikasi halaman
 4. ✅ Cocok untuk testing website yang sudah jadi
 
 **Kelebihan:**
 - Tidak merusak layout halaman asli
 - Lebih natural dan sesuai kondisi real
-- Cocok untuk testing integrasi reCAPTCHA
+- Cocok untuk testing integrasi hCaptcha
 
 ```bash
 # Mode normal (default)
-node index.js -s 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- -u https://www.google.com/recaptcha/api2/demo
+node index.js -s YOUR_HCAPTCHA_SITEKEY -u https://accounts.hcaptcha.com/demo
 ```
 
 #### 💉 Mode Inject
-**Kapan digunakan:** Ketika Anda ingin testing reCAPTCHA di environment yang bersih tanpa gangguan elemen lain.
+**Kapan digunakan:** Ketika Anda ingin testing hCaptcha di environment yang bersih tanpa gangguan elemen lain.
 
 **Cara kerja:**
 1. ✅ Browser membuka URL target (untuk domain verification)
 2. ✅ Menghapus semua konten HTML asli
-3. ✅ Inject halaman baru dengan hanya reCAPTCHA widget
+3. ✅ Inject halaman baru dengan hanya hCaptcha widget
 4. ✅ Cocok untuk isolated testing
 
 **Kelebihan:**
-- Fokus hanya ke reCAPTCHA
+- Fokus hanya ke hCaptcha
 - Tidak ada gangguan dari elemen lain
 - Load time lebih cepat
 
 ```bash
 # Mode inject
-node index.js -s 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- -u https://www.google.com/recaptcha/api2/demo --mode inject
+node index.js -s YOUR_HCAPTCHA_SITEKEY -u https://accounts.hcaptcha.com/demo --mode inject
 ```
 
 ---
@@ -171,17 +171,17 @@ node index.js -s YOUR_SITEKEY -u YOUR_URL
 
 ### 💡 Contoh Penggunaan Real
 
-#### 🧪 Testing dengan Google Demo (Recommended untuk pemula)
+#### 🧪 Testing dengan hCaptcha Demo (Recommended untuk pemula)
 ```bash
 # Basic - mode normal
 node index.js \
-  --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- \
-  --url https://www.google.com/recaptcha/api2/demo
+  --sitekey YOUR_HCAPTCHA_SITEKEY \
+  --url https://accounts.hcaptcha.com/demo
 
 # Mode inject dengan screenshot
 node index.js \
-  --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- \
-  --url https://www.google.com/recaptcha/api2/demo \
+  --sitekey YOUR_HCAPTCHA_SITEKEY \
+  --url https://accounts.hcaptcha.com/demo \
   --mode inject \
   --screenshot
 ```
@@ -230,7 +230,7 @@ node index.js \
 
 ## 🎯 Cara Kerja Sistem
 
-Tool ini menggunakan pendekatan multi-layer untuk menyelesaikan reCAPTCHA dengan tingkat keberhasilan tinggi:
+Tool ini menggunakan pendekatan multi-layer untuk menyelesaikan hCaptcha dengan tingkat keberhasilan tinggi:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -241,13 +241,13 @@ Tool ini menggunakan pendekatan multi-layer untuk menyelesaikan reCAPTCHA dengan
                         ↓
 ┌─────────────────────────────────────────────────────────┐
 │  2. PAGE PREPARATION                                    │
-│  • Mode Normal: Use existing reCAPTCHA                 │
+│  • Mode Normal: Use existing hCaptcha                  │
 │  • Mode Inject: Clean page + inject widget            │
 └─────────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────────┐
-│  3. RECAPTCHA DETECTION                                 │
-│  • Wait for reCAPTCHA iframe                           │
+│  3. HCAPTCHA DETECTION                                  │
+│  • Wait for hCaptcha iframe                            │
 │  • Find checkbox element                               │
 └─────────────────────────────────────────────────────────┘
                         ↓
@@ -286,13 +286,13 @@ Tool ini menggunakan pendekatan multi-layer untuk menyelesaikan reCAPTCHA dengan
 ```
 ╔════════════════════════════════════════════════════════════╗
 ║                                                            ║
-║        🤖 reCAPTCHA v2 AI Solver - CLI Tool                ║
+║        🤖 hCaptcha AI Solver - CLI Tool                    ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
 
 📋 Configuration:
-   Sitekey: 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-
-   Target URL: https://www.google.com/recaptcha/api2/demo
+   Sitekey: YOUR_HCAPTCHA_SITEKEY
+   Target URL: https://accounts.hcaptcha.com/demo
    Mode: normal
    Headless: false
    Screenshot: disabled
@@ -302,30 +302,24 @@ Tool ini menggunakan pendekatan multi-layer untuk menyelesaikan reCAPTCHA dengan
 🚀 Starting browser...
 ✓ Browser launched
 
-🌐 Navigating to target URL: https://www.google.com/recaptcha/api2/demo
+🌐 Navigating to target URL: https://accounts.hcaptcha.com/demo
 ✓ Target page loaded
-🔍 Mode normal: menggunakan reCAPTCHA yang ada di halaman...
-⏳ Waiting for reCAPTCHA to render...
-✓ reCAPTCHA rendered successfully
+🔍 Mode normal: menggunakan hCaptcha yang ada di halaman...
+⏳ Waiting for hCaptcha to render...
+✓ hCaptcha rendered successfully
 
 ═══════════════════════════════════════════════════════════
 🎯 Starting CAPTCHA solving process...
 ═══════════════════════════════════════════════════════════
 
 ✅ Captcha Ready
-🖱️  Clicked reCAPTCHA checkbox
-🎯 Challenge Detected: Select all images with traffic lights
-📋 Dynamic: true
-🔍 Analyzing: traffic lights
+🖱️  Clicked hCaptcha checkbox
+🎯 Challenge Detected: Please click each image containing a bicycle
+📋 Dynamic: false
+🔍 Analyzing: bicycle
 ✓ Found 3 tiles to click: [1,2], [2,3], [3,1]
 🖱️  Clicking tiles...
 ✓ Finished clicking tiles
-🔍 Analyzing: traffic lights (new tiles loaded)
-✓ Found 2 tiles to click: [1,1], [3,2]
-🖱️  Clicking tiles...
-✓ Finished clicking tiles
-🔍 Analyzing: traffic lights
-✓ Found 0 tiles to click
 ✓ No matching tiles found - proceeding to verify
 ✓ Clicked verify button
 ✅ Verification successful - token received
@@ -334,12 +328,12 @@ Tool ini menggunakan pendekatan multi-layer untuk menyelesaikan reCAPTCHA dengan
 ═══════════════════════════════════════════════════════════
 🎉 SUCCESS! Token berhasil didapatkan
 
-⏱️  Time taken: 25.47s
+⏱️  Time taken: 18.32s
 
 🎫 Token:
-03AGdBq27xKjEMd3XlK84SIo6L_K2p-xk7Tu-pUHNotM6JXmW2nurgR...
+P0_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNza2V5Ijo...
 
-📊 Stats: Success Rate: 100.00% | Avg Time/Token: 25.47s | Total Attempts: 1 | Successful Tokens: 1
+📊 Stats: Success Rate: 100.00% | Avg Time/Token: 18.32s | Total Attempts: 1 | Successful Tokens: 1
 
 ✅ Token has been verified and is ready to use!
 ═══════════════════════════════════════════════════════════
@@ -352,11 +346,11 @@ Press Ctrl+C to close browser and exit...
 ## 🛠️ Project Structure
 
 ```
-recaptcha-solver-cli/
+hcaptcha-solver-cli/
 ├── 📄 index.js                    # Entry point & CLI configuration
 ├── 📁 lib/
 │   ├── captcha-solver.js         # Core solving logic + AI integration
-│   ├── captcha-watcher.js        # Real-time reCAPTCHA monitoring
+│   ├── captcha-watcher.js        # Real-time hCaptcha monitoring
 │   └── result-tracker.js         # Statistics & success tracking
 ├── 📁 utils/
 │   └── logger.js                 # Winston-based logging system
@@ -419,7 +413,7 @@ node index.js --sitekey YOUR_KEY --url YOUR_URL --debug --screenshot
 
 **Solusi:**
 - Pastikan sitekey yang digunakan sesuai dengan domain
-- Token reCAPTCHA biasanya valid beberapa menit saja
+- Token hCaptcha biasanya valid beberapa menit saja
 - Gunakan token segera setelah didapat
 
 ### 🐌 Proses Lambat
@@ -493,8 +487,8 @@ node index.js --sitekey KEY --url URL --headless
 ### Q: Apakah perlu API key berbayar?
 **A:** Tidak! Gemini API memiliki free tier yang cukup untuk testing dan development.
 
-### Q: Bisa solve reCAPTCHA v3?
-**A:** Tidak, tool ini khusus untuk reCAPTCHA v2 (yang ada checkbox & image challenge).
+### Q: Apakah bisa solve reCAPTCHA?
+**A:** Tidak, tool ini khusus untuk hCaptcha. Untuk reCAPTCHA, Anda perlu tool yang berbeda.
 
 ### Q: Screenshot disimpan dimana?
 **A:** Di folder `screenshots/` relative terhadap lokasi script. Gunakan flag `--screenshot` untuk enable.
@@ -542,16 +536,16 @@ Stats ditampilkan otomatis setelah selesai solving.
 ## 🎯 Use Cases
 
 ### 1. Development & Testing
-Test integrasi reCAPTCHA di aplikasi Anda sebelum production.
+Test integrasi hCaptcha di aplikasi Anda sebelum production.
 
 ### 2. QA Automation
-Automated testing untuk flow yang memerlukan reCAPTCHA.
+Automated testing untuk flow yang memerlukan hCaptcha.
 
 ### 3. Research & Education
-Pelajari cara kerja reCAPTCHA dan AI visual recognition.
+Pelajari cara kerja hCaptcha dan AI visual recognition.
 
 ### 4. Accessibility Testing
-Test apakah reCAPTCHA di website Anda solve-able.
+Test apakah hCaptcha di website Anda solve-able.
 
 ---
 
