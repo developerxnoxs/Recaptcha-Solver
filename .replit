@@ -65,14 +65,6 @@ task = "shell.exec"
 args = "node index.js --api"
 waitForPort = 5000
 
-[[workflows.workflow]]
-name = "Audio Mode (Inject)"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode inject --audio"
-
 [workflows.workflow.metadata]
 outputType = "console"
 
