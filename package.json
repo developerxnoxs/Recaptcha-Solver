@@ -1,16 +1,16 @@
 {
-  "name": "recaptcha-solver-cli",
+  "name": "hcaptcha-solver-cli",
   "version": "1.0.0",
-  "description": "CLI tool untuk menyelesaikan reCAPTCHA v2 menggunakan Gemini AI",
+  "description": "CLI tool untuk menyelesaikan hCaptcha menggunakan Gemini AI",
   "main": "index.js",
   "bin": {
-    "recaptcha-solver": "./index.js"
+    "hcaptcha-solver": "./index.js"
   },
   "scripts": {
     "solve": "node index.js"
   },
   "keywords": [
-    "recaptcha",
+    "hcaptcha",
     "solver",
     "ai",
     "gemini",
