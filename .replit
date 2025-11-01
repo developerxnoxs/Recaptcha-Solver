@@ -57,13 +57,13 @@ args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url h
 name = "API Server"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node index.js --api"
 waitForPort = 5000
-
-[workflows.workflow.metadata]
-outputType = "webview"
 
 [[workflows.workflow]]
 name = "Audio Mode (Inject)"
@@ -78,15 +78,15 @@ outputType = "console"
 
 [[ports]]
 localPort = 5000
-externalPort = 5000
-
-[[ports]]
-localPort = 8000
-externalPort = 8000
+externalPort = 80
 
 [[ports]]
 localPort = 33315
 externalPort = 80
+
+[[ports]]
+localPort = 44809
+externalPort = 3001
 
 [[ports]]
 localPort = 46495
