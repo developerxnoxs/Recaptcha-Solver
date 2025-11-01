@@ -95,23 +95,19 @@ async function main() {
 
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
 
-        logger.info(`🌐 Navigating to target URL: ${options.url}`);
-        await page.goto(options.url, {
-            waitUntil: 'domcontentloaded',
-            timeout: 30000
-        });
-        logger.info('✓ Target page loaded');
-
         if (options.mode === 'inject') {
-            logger.info('🗑️  Clearing original page content...');
-            await page.evaluate(() => {
-                document.documentElement.innerHTML = '';
+            logger.info(`🌐 Navigating to target URL: ${options.url}`);
+            await page.goto(options.url, {
+                waitUntil: 'domcontentloaded',
+                timeout: 30000
             });
-            logger.info('✓ Original content cleared');
+            logger.info('✓ Target page loaded');
 
+            logger.info('🗑️  Clearing original page content...');
             logger.info('💉 Injecting fake page with hCaptcha...');
-            await page.evaluate((sitekey) => {
-                document.documentElement.innerHTML = `
+            
+            const htmlContent = `
+<!DOCTYPE html>
 <html>
 <head>
     <title>Hcaptcha Solver</title>
@@ -119,14 +115,20 @@ async function main() {
 </head>
 <body>
     <form action="/submit" method="POST">
-        <div class="h-captcha" data-sitekey="${sitekey}"></div>
+        <div class="h-captcha" data-sitekey="${options.sitekey}"></div>
     </form>
 </body>
-</html>
-                `.trim();
-            }, options.sitekey);
+</html>`;
+            
+            await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
             logger.info('✓ Fake page injected with sitekey: ' + options.sitekey);
         } else {
+            logger.info(`🌐 Navigating to target URL: ${options.url}`);
+            await page.goto(options.url, {
+                waitUntil: 'domcontentloaded',
+                timeout: 30000
+            });
+            logger.info('✓ Target page loaded');
             logger.info('🔍 Mode normal: menggunakan hCaptcha yang ada di halaman...');
         }
 

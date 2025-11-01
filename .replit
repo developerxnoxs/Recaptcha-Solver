@@ -17,7 +17,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Normal Mode"
+args = "API Server"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
@@ -25,33 +25,11 @@ args = "Inject Mode"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "API Server"
+args = "Normal Mode"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
 args = "Audio Mode (Inject)"
-
-[[workflows.workflow]]
-name = "Normal Mode"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode normal"
-
-[[workflows.workflow]]
-name = "Inject Mode"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode inject"
 
 [[workflows.workflow]]
 name = "API Server"
@@ -66,12 +44,34 @@ waitForPort = 5000
 outputType = "webview"
 
 [[workflows.workflow]]
+name = "Inject Mode"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode inject"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
+name = "Normal Mode"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode normal"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
 name = "Audio Mode (Inject)"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js --sitekey 6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ- --url https://www.google.com/recaptcha/api2/demo --mode inject --audio"
+args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode inject --audio"
 
 [workflows.workflow.metadata]
 outputType = "console"
@@ -87,10 +87,6 @@ externalPort = 8000
 [[ports]]
 localPort = 33315
 externalPort = 80
-
-[[ports]]
-localPort = 34369
-externalPort = 3001
 
 [[ports]]
 localPort = 46495
