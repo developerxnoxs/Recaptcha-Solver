@@ -130,12 +130,7 @@ async function main() {
             }, options.sitekey);
             logger.info('✓ Fake page injected');
 
-            logger.info('💉 Injecting reCAPTCHA API script...');
-            await page.addScriptTag({
-                url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
-                type: 'text/javascript'
-            });
-
+            logger.info('💉 Setting up reCAPTCHA callback...');
             await page.evaluate(() => {
                 window.onRecaptchaLoad = function() {
                     console.log('reCAPTCHA API loaded!');
@@ -150,6 +145,12 @@ async function main() {
                     document.getElementById('status').textContent = '✅ reCAPTCHA loaded';
                     console.log('reCAPTCHA rendered with sitekey:', sitekey);
                 };
+            });
+
+            logger.info('💉 Injecting reCAPTCHA API script...');
+            await page.addScriptTag({
+                url: 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit',
+                type: 'text/javascript'
             });
         } else {
             logger.info('🔍 Mode normal: menggunakan reCAPTCHA yang ada di halaman...');
@@ -210,7 +211,10 @@ async function main() {
         });
 
     } catch (error) {
-        logger.error('❌ Error:', error.message);
+        logger.error('❌ Error:', error.message || error);
+        if (error.stack) {
+            logger.debug('Stack trace:', error.stack);
+        }
         resultTracker.addResult({ token: null });
     } finally {
         await browser.close();
