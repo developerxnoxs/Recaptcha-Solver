@@ -159,7 +159,35 @@ curl -X POST http://localhost:5000/solve \
 ```
 
 **Recent Changes** (November 2, 2025):
-- **Critical Bug Fixes for Multi-Challenge Support**:
+- **Major Accuracy Improvements for All Challenge Types**:
+  - **Jigsaw/Slider Solver Enhancements**:
+    - Completely rewritten Gemini prompts with ultra-precise analysis instructions
+    - Added step-by-step coordinate measurement methodology
+    - Implemented multi-attempt retry logic (up to 2 attempts with adjustments)
+    - Enhanced drag movement with smooth multi-step transitions (15-25 steps)
+    - Added post-solution validation to verify puzzle was solved
+    - Optimized Gemini parameters (temperature: 0.05, topP: 0.9, topK: 20)
+  - **Multiple Choice Solver Enhancements**:
+    - Comprehensive visual analysis framework with 5-step systematic evaluation
+    - Added detailed object/scene/action recognition guidelines
+    - Included distinction guides for common confusions (cat vs dog, car vs truck, etc.)
+    - Enhanced elimination process with scoring system
+    - Better confidence assessment and decision strategy
+    - Optimized Gemini parameters for more accurate predictions
+  - **Bounding Box Solver Enhancements**:
+    - Complete object inventory system with grid-based scanning (3x3 sections)
+    - Precise coordinate calculation method with boundary identification
+    - Better task type classification (find all, find different, find largest)
+    - Comprehensive object recognition reference library
+    - Enhanced verification checklist with 6-point validation
+    - Increased maxOutputTokens to 1536 for detailed responses
+  - **Grid Solver Improvements**:
+    - Optimized Gemini parameters across all grid challenges
+    - Temperature reduced from 0.1 to 0.05 for more consistent results
+    - Increased maxOutputTokens to 2048 for better analysis
+  - **Result**: Dramatically improved accuracy for jigsaw, multiple choice, and bounding box challenges through better AI prompts, retry logic, and validation
+
+- **Critical Bug Fixes for Multi-Challenge Support** (October 28, 2025):
   - Fixed null pointer exception in `captcha-watcher.js` (line 268): Added null check for `table` element before accessing `className` property
     - Issue: Non-grid challenges (BOUNDING_BOX, JIGSAW, etc.) don't have table element, causing crash
     - Solution: Changed `gridType: table.className` to `gridType: table ? table.className : 'unknown'`
