@@ -17,91 +17,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "API Server"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Inject Mode"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Normal Mode"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Audio Mode (Inject)"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Test Inject (Debug)"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Test NopeCHA Demo"
+args = "NopeCHA Standard Demo"
 
 [[workflows.workflow]]
-name = "API Server"
+name = "NopeCHA Standard Demo"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js --api"
-waitForPort = 5000
-
-[workflows.workflow.metadata]
-outputType = "webview"
-
-[[workflows.workflow]]
-name = "Inject Mode"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode inject"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow]]
-name = "Normal Mode"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode normal"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow]]
-name = "Audio Mode (Inject)"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode inject --audio"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow]]
-name = "Test Inject (Debug)"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey 10000000-ffff-ffff-ffff-000000000001 --url https://accounts.hcaptcha.com/demo --mode inject --screenshot --debug"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow]]
-name = "Test NopeCHA Demo"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey b4c45857-0e23-48e6-9017-e28fff99ffb2 --url https://nopecha.com/demo/hcaptcha#easy --mode inject --screenshot --debug"
+args = "node index.js --sitekey ab803303-ac41-41aa-9be1-7b4e01b91e2c --url https://nopecha.com/demo/hcaptcha --mode normal --screenshot --debug"
 
 [workflows.workflow.metadata]
 outputType = "console"
