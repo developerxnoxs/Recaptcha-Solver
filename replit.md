@@ -1,13 +1,13 @@
-# reCAPTCHA v2 AI Solver - CLI Tool & API
+# hCaptcha AI Solver - CLI Tool & API
 
 ## Overview
 
-This is a command-line tool and API service that automatically solves reCAPTCHA v2 challenges using Google's Gemini AI for visual recognition. The tool can operate in two modes:
+This is a command-line tool and API service that automatically solves hCaptcha challenges using Google's Gemini AI for visual recognition. The tool can operate in two modes:
 
 1. **CLI Mode**: Command-line interface for direct solving with real-time monitoring
 2. **API Mode**: HTTP REST API server for programmatic access
 
-The system uses browser automation to interact with reCAPTCHA challenges, captures screenshots at various stages, and employs AI to identify and select correct challenge images. In non-headless mode, users can watch the solving process in real-time.
+The system uses browser automation to interact with hCaptcha challenges, captures screenshots at various stages, and employs AI to identify and select correct challenge images. In non-headless mode, users can watch the solving process in real-time.
 
 ## User Preferences
 
@@ -17,25 +17,25 @@ Preferred communication style: Simple, everyday language.
 
 ### Browser Automation Layer
 
-**Problem**: Need to interact with reCAPTCHA challenges in a way that mimics human behavior and avoids detection.
+**Problem**: Need to interact with hCaptcha challenges in a way that mimics human behavior and avoids detection.
 
 **Solution**: Uses Puppeteer Extra with Stealth Plugin to launch and control a Chromium browser instance.
 
 **Design Decisions**:
-- **Stealth Plugin**: Masks automation signals that reCAPTCHA uses to detect bots. This includes hiding WebDriver properties and other automation indicators.
+- **Stealth Plugin**: Masks automation signals that hCaptcha uses to detect bots. This includes hiding WebDriver properties and other automation indicators.
 - **Non-headless Mode by Default**: Browser is visible to allow users to monitor the solving process in real-time ("watch relay" feature).
 - **System Chromium Preference**: Attempts to use system-installed Chromium first before falling back to bundled version for better compatibility.
 - **Single Process Mode**: Reduces resource usage and potential detection vectors.
 
 **Browser Configuration**:
 - Disables automation flags
-- Enables WebGL for proper reCAPTCHA rendering
+- Enables WebGL for proper hCaptcha rendering
 - Sets English language to ensure consistent challenge text
 - Uses large viewport (1920x1080) for better image capture
 
 ### AI Vision Processing
 
-**Problem**: Need to identify and select correct images from reCAPTCHA visual challenges (e.g., "Select all images with traffic lights").
+**Problem**: Need to identify and select correct images from hCaptcha visual challenges (e.g., "Select all images with traffic lights").
 
 **Solution**: Integrates Google Gemini AI for visual recognition of challenge images.
 
@@ -46,7 +46,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Challenge Detection & Monitoring
 
-**Problem**: Need to detect when reCAPTCHA challenges appear, change, or complete, without constant polling that could trigger detection.
+**Problem**: Need to detect when hCaptcha challenges appear, change, or complete, without constant polling that could trigger detection.
 
 **Solution**: Implements a CaptchaWatcher class that monitors the page state through timed polling with callbacks.
 
@@ -158,7 +158,17 @@ curl -X POST http://localhost:5000/solve \
   }'
 ```
 
-**Recent Changes** (October 28, 2025):
+**Recent Changes** (November 2, 2025):
+- **Critical Bug Fixes for Multi-Challenge Support**:
+  - Fixed null pointer exception in `captcha-watcher.js` (line 268): Added null check for `table` element before accessing `className` property
+    - Issue: Non-grid challenges (BOUNDING_BOX, JIGSAW, etc.) don't have table element, causing crash
+    - Solution: Changed `gridType: table.className` to `gridType: table ? table.className : 'unknown'`
+  - Fixed challenge type routing in `captcha-solver.js` verifyChallenge function:
+    - Issue: After verification, new challenges were always processed with grid solver regardless of actual type
+    - Solution: Added automatic challenge type detection for new challenges and proper routing to appropriate solver (BOUNDING_BOX, JIGSAW_SLIDER, MULTIPLE_CHOICE, or GRID)
+  - **Result**: Solver now successfully handles multiple challenge iterations with different types (e.g., BOUNDING_BOX → DRAG → BOUNDING_BOX)
+
+**Previous Changes** (October 28, 2025):
 - **API Mode Added**: New `--api` flag to run as HTTP REST API server
   - Listens on port 5000 with CORS enabled
   - POST /solve endpoint accepts `sitekey` and `pageurl` parameters
@@ -166,8 +176,8 @@ curl -X POST http://localhost:5000/solve \
   - Returns JSON response with token, duration, and status
   - Created "API Server" workflow for easy testing
 - Added `--mode` option with two modes: `normal` (default) and `inject`
-  - Normal mode: Solves reCAPTCHA on the existing page without modification
-  - Inject mode: Replaces page content with clean reCAPTCHA widget
+  - Normal mode: Solves hCaptcha on the existing page without modification
+  - Inject mode: Replaces page content with clean hCaptcha widget
 - Added `--screenshot` option (default: false) for optional screenshot capture
   - When disabled (default): Screenshots taken for AI analysis are automatically deleted after processing
   - When enabled: All screenshots saved to `screenshots/` folder for debugging and documentation
