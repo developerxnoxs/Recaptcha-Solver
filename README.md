@@ -12,6 +12,7 @@ CLI tool canggih yang menggunakan Google Gemini AI untuk menyelesaikan hCaptcha 
 |-------|-----------|
 | 🎯 **Dual Mode** | Pilih antara mode **normal** (langsung solve di halaman asli) atau **inject** (inject fake page) |
 | 🤖 **AI-Powered** | Menggunakan Google Gemini 2.5 Flash untuk analisis visual yang akurat |
+| 🧩 **Multi-Challenge Support** | Mendukung berbagai jenis tantangan hCaptcha (Grid, Bounding Box, Jigsaw, Multiple Choice, Audio) |
 | 👁️ **Visual Monitoring** | Browser tampil (non-headless) sehingga Anda bisa menonton prosesnya secara langsung |
 | 📸 **Screenshot Opsional** | Simpan screenshot otomatis di setiap tahap atau nonaktifkan untuk performa lebih cepat |
 | 📊 **Live Statistics** | Tracking success rate, average time, dan total attempts secara real-time |
@@ -224,6 +225,144 @@ node index.js \
   --url https://example.com \
   --debug \
   --screenshot
+```
+
+---
+
+## 🧩 Challenge Types Yang Didukung
+
+Tool ini dapat menangani **semua jenis tantangan hCaptcha** dengan menggunakan Gemini AI untuk analisis visual:
+
+### 1. 🔲 **GRID_BASED** (image_label_binary)
+**Deskripsi**: Tantangan grid 3x3 atau 4x4 dengan tile gambar  
+**Task**: Klik semua tile yang berisi objek tertentu  
+**Contoh**: "Please click each image containing a bicycle"
+
+**Cara Kerja**:
+- AI menganalisis setiap tile dalam grid
+- Identifikasi objek yang sesuai dengan prompt
+- Support untuk dynamic challenges (gambar berganti saat diklik)
+- Menangani objek partial (terpotong di pinggir tile)
+
+**Keunggulan**:
+- ✅ Prompt engineering canggih untuk accuracy tinggi
+- ✅ Mengenal 100+ jenis objek umum
+- ✅ Handling untuk dynamic/static challenges
+- ✅ Support grid 3x3 dan 4x4
+
+---
+
+### 2. 🎯 **BOUNDING_BOX** (image_label_area_select)
+**Deskripsi**: Klik pada koordinat spesifik di canvas  
+**Task**: Klik pada objek atau icon tertentu di canvas  
+**Contoh**: "Click on the two icons that are different from the others"
+
+**Cara Kerja**:
+- AI menganalisis canvas dan identifikasi objek
+- Menghitung koordinat CENTER dari setiap objek matching
+- Klik pada koordinat pixel yang tepat
+
+**Keunggulan**:
+- ✅ Spatial reasoning untuk posisi objek
+- ✅ Support multiple clicks per challenge
+- ✅ Precision pixel-level coordinates
+- ✅ Deteksi objek dengan berbagai ukuran
+
+---
+
+### 3. 🧩 **JIGSAW_SLIDER** (image_drag_drop)
+**Deskripsi**: Puzzle yang memerlukan drag & drop atau slider  
+**Task**: Geser piece puzzle ke posisi yang benar  
+**Contoh**: "Move the slider to align the image"
+
+**Cara Kerja**:
+- AI mengidentifikasi piece yang perlu digeser
+- Menghitung offset horizontal/vertical yang diperlukan
+- Simulasi drag dengan human-like movement
+- Support untuk slider horizontal dan jigsaw 2D
+
+**Keunggulan**:
+- ✅ Spatial reasoning untuk alignment
+- ✅ Support slider horizontal dan jigsaw 2D
+- ✅ Human-like drag movement
+- ✅ Precise offset calculation
+
+---
+
+### 4. 🤔 **MULTIPLE_CHOICE** (image_label_multiple_choice)
+**Deskripsi**: Pilih satu jawaban dari beberapa pilihan  
+**Task**: Identifikasi gambar utama dan pilih label yang sesuai  
+**Contoh**: "What room is shown in the image?" → [Bedroom, Kitchen, Bathroom]
+
+**Cara Kerja**:
+- AI menganalisis gambar referensi/utama
+- Membandingkan dengan semua pilihan yang ada
+- Memilih satu jawaban yang paling sesuai
+- Visual question-answering dengan confidence scoring
+
+**Keunggulan**:
+- ✅ Visual QA menggunakan Gemini vision
+- ✅ Zero-shot classification
+- ✅ Reasoning explanation untuk debugging
+- ✅ Confidence scoring
+
+---
+
+### 5. 🎵 **AUDIO CHALLENGE**
+**Deskripsi**: Challenge audio sebagai alternatif visual  
+**Task**: Dengarkan audio dan ketik teks yang diucapkan  
+**Contoh**: Numeric atau alphabetic audio transcription
+
+**Cara Kerja**:
+- Download file audio dari hCaptcha
+- Transkripsi menggunakan Gemini AI multimodal
+- Input teks hasil transkripsi dengan human-like typing
+- Fallback otomatis ke visual challenge jika gagal
+
+**Keunggulan**:
+- ✅ Audio transcription dengan Gemini
+- ✅ Support MP3 format
+- ✅ Human-like typing simulation
+- ✅ Auto fallback ke image challenge
+
+---
+
+## 📊 Challenge Detection & Strategy
+
+Tool ini secara **otomatis mendeteksi** jenis challenge dan memilih solver yang tepat:
+
+```javascript
+┌────────────────────────────────────────┐
+│   CHALLENGE DETECTOR                   │
+│   • Scan DOM structure                │
+│   • Identify challenge type            │
+│   • Extract prompt text                │
+└────────────────────────────────────────┘
+              ↓
+┌────────────────────────────────────────┐
+│   SOLVER SELECTION                     │
+│   • GRID_BASED → Grid Solver          │
+│   • BOUNDING_BOX → Canvas Solver      │
+│   • JIGSAW_SLIDER → Puzzle Solver     │
+│   • MULTIPLE_CHOICE → Choice Solver   │
+│   • AUDIO → Audio Solver              │
+└────────────────────────────────────────┘
+              ↓
+┌────────────────────────────────────────┐
+│   AI ANALYSIS                          │
+│   • Gemini 2.5 Flash vision           │
+│   • Advanced prompt engineering       │
+│   • Spatial reasoning                 │
+│   • Object detection                  │
+└────────────────────────────────────────┘
+              ↓
+┌────────────────────────────────────────┐
+│   SOLUTION EXECUTION                   │
+│   • Human-like interactions           │
+│   • Random delays                     │
+│   • Ghost cursor movement             │
+│   • Verification & token extraction   │
+└────────────────────────────────────────┘
 ```
 
 ---
