@@ -159,7 +159,33 @@ curl -X POST http://localhost:5000/solve \
 ```
 
 **Recent Changes** (November 2, 2025):
-- **Major Accuracy Improvements for All Challenge Types**:
+- **Enhanced Detection & Cursor Realism for Bounding Box and Jigsaw Challenges**:
+  - **Bounding Box Multi-Target Detection Fix**:
+    - Completely rewrote Gemini prompt to emphasize finding ALL matching objects
+    - Added explicit step-by-step counting methodology: COUNT ALL → IDENTIFY MATCHES → DOUBLE-CHECK
+    - Introduced mandatory object counting in response format (total_objects_seen, matching_objects_count)
+    - Added comprehensive object recognition guide with visual differentiation tips
+    - Enhanced warning system to prevent common mistakes (missing corners, stopping early, confusion between similar objects)
+    - **Result**: Solver now correctly identifies and clicks ALL targets when multiple objects need to be marked (e.g., 2 cats, 3 cars)
+  
+  - **Jigsaw/Slider Drag Functionality Improvements**:
+    - Improved drag movement with more realistic human-like behavior
+    - Increased drag steps from 15-25 to 20-35 for smoother motion
+    - Added micro-jitter every 3 steps to simulate natural hand tremor
+    - Implemented mid-drag pause (50-100ms) for more realistic movement
+    - Enhanced logging to show offset values and drag progress
+    - Better error handling with bounding box validation
+    - **Result**: Drag challenges now work correctly with realistic cursor movement that appears human
+  
+  - **Cursor Movement Realism Enhancements**:
+    - Added ±3px random jitter to click positions for natural variation
+    - Implemented explicit mouse down/up with 50-120ms hold time (realistic click duration)
+    - Increased hesitate time to 75-225ms and move delay to 600-1600ms for more human-like cursor paths
+    - Extended delays between clicks from 400-800ms to 500-1000ms
+    - All movements now use ghost-cursor for bezier curve paths
+    - **Result**: Cursor movements now appear more realistic and human-like, reducing detection risk
+
+- **Major Accuracy Improvements for All Challenge Types** (Previous Update):
   - **Jigsaw/Slider Solver Enhancements**:
     - Completely rewritten Gemini prompts with ultra-precise analysis instructions
     - Added step-by-step coordinate measurement methodology
