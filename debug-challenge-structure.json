@@ -1,0 +1,103 @@
+{
+  "type": "BOUNDING_BOX",
+  "prompt": {
+    "text": "Please click on the two icons that are different from thе others",
+    "innerHTML": "<h2 class=\"prompt-text\" dir=\"ltr\" style=\"opacity: 1; direction: ltr; text-align: center; height: 60px; vertical-align: middle; display: table-cell; font-size: 16px; font-weight: 700; color: rgb(112, 112, 112); width: 500px;\">Please click on the two icons that are different from thе others</h2><div class=\"prompt-block\" style=\"opacity: 0; position: absolute; top: 15px; left: 0px; z-index: 5; height: 30px; background-color: rgb(240, 239, 240); border-radius: 4px; width: 500px;\"></div>"
+  },
+  "gridBased": null,
+  "jigsawSlider": null,
+  "boundingBox": {
+    "count": 1,
+    "canvases": [
+      {
+        "width": 1000,
+        "height": 860,
+        "className": "",
+        "id": ""
+      }
+    ]
+  },
+  "allElements": {
+    "allClassNames": [
+      "no-selection",
+      "interface-wrapper",
+      "challenge-container",
+      "challenge",
+      "challenge-view",
+      "challenge-prompt",
+      "prompt-text",
+      "prompt-block",
+      "bounding-box-example",
+      "example-wrapper",
+      "challenge-header",
+      "prompt-padding",
+      "skip",
+      "prompt-bg",
+      "examples",
+      "challenge-report",
+      "report-text",
+      "report-bg",
+      "interface-user",
+      "language-selector",
+      "scroll-container",
+      "option",
+      "button",
+      "text",
+      "info-on",
+      "info-off",
+      "refresh button",
+      "refresh-on",
+      "refresh-off",
+      "hcaptcha-logo",
+      "hcaptcha-logo-icon",
+      "logo",
+      "interface-challenge",
+      "display-error",
+      "error-text",
+      "challenge-breadcrumbs",
+      "crumbs-wrapper",
+      "Crumb",
+      "crumb-bg",
+      "button-submit button",
+      "button-submit-spinner",
+      "spinner-icon",
+      "challenge-modal",
+      "container",
+      "modal no-outline",
+      "header",
+      "underline",
+      "content",
+      "close button",
+      "close-on"
+    ],
+    "allIds": [
+      "language-list",
+      "display-language",
+      "menu-info",
+      "menu",
+      "spinner-mask-1",
+      "modal-title",
+      "modal-content"
+    ],
+    "allTags": [
+      "html",
+      "head",
+      "title",
+      "meta",
+      "style",
+      "body",
+      "script",
+      "div",
+      "h2",
+      "p",
+      "canvas",
+      "span",
+      "svg",
+      "circle",
+      "path",
+      "a",
+      "mask"
+    ]
+  },
+  "domStructure": "\n    <script type=\"text/javascript\">/* { \"version\": \"1\", \"hash\": \"MEYCIQDqy78U1r8XD/TNlGiugKcLXXQZxq6HHZDaSDhrs+OTIAIhAOe/ZdqcD/F0RgKriwxzgXI0AxTX+pyuNjQa2jRZ2maL\" } */\n/* https://hcaptcha.com/license */\n!function(){\"use strict\";function t(t){var e=this.constructor;return this.then((function(i){return e.resolve(t()).then((function(){return i}))}),(function(i){return e.resolve(t()).then((function(){return e.reject(i)}))}))}function e(t){return new this((function(e,i){if(!t||\"undefined\"==typeof t.length)return i(new TypeError(typeof t+\" \"+t+\" is not iterable(cannot read property Symbol(Symbol.iterator))\"));var n=Array.prototype.slice.call(t);if(0===n.length)return e([]);var o=n.length;function r(t,i){if(i&&(\"object\"==typeof i||\"function\"==typeof i)){var s=i.then;if(\"function\"==typeof s)return void s.call(i,(function(e){r(t,e)}),(function(i){n[t]={status:\"rejected\",reason:i},0==--o&&e(n)}))}n[t]={status:\"fulfilled\",value:i},0==--o&&e(n)}for(var s=0;s<n.length;s++)r(s,n[s])}))}var i=setTimeout,n=\"undefined\"!=typeof setImmediate?setImmediate:null;function o(t){return Boolean(t&&\"undefined\"!=typeof t.length)}function r(){}function s(t){if(!(this instanceof s))throw new TypeError(\"Promises must be constructed via new\");if(\"function\"!=typeof t)throw new TypeError(\"not a function\");this._state=0,this._handled=!1,this._value=undefined,this._deferreds=[],p(t,this)}function a(t,e){for(;3===t._state;)t=t._value;0!==t._state?(t._handled=!0,s._immediateFn((function(){var i=1===t._state?e.onFulfilled:e.onRejected;if(null!==i){var n;try{n=i(t._value)}catch(o){return void c(e.promise,o)}l(e.promise,n)}else(1===t._state?l:c)(e.promise,t._value)}))):t._deferreds.push(e)}function l(t,e){try{if(e===t)throw new TypeError(\"A promise cannot be resolved with itself.\");if(e&&(\"object\"==typeof e||\"function\"==typeof e)){var i=e.then;if(e instanceof s)return t._state=3,t._value=e,void h(t);if(\"function\"==typeof i)return void p((n=i,o=e,function(){n.apply(o,arguments)}),t)}t._state=1,t._value=e,h"
+}
