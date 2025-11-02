@@ -1,4 +1,4 @@
-modules = ["nodejs-20"]
+modules = ["nodejs-20", "web"]
 [agent]
 expertMode = true
 integrations = ["javascript_gemini:1.0.0"]
@@ -102,6 +102,10 @@ externalPort = 8000
 [[ports]]
 localPort = 33315
 externalPort = 80
+
+[[ports]]
+localPort = 39427
+externalPort = 3001
 
 [[ports]]
 localPort = 46495
