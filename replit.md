@@ -159,6 +159,46 @@ curl -X POST http://localhost:5000/solve \
 ```
 
 **Recent Changes** (November 3, 2025):
+
+- **Timeout Extension** ⏱️:
+  - Extended verification timeout dari 5 detik menjadi **5 menit** (300 detik)
+  - Extended audio challenge verification timeout juga menjadi 5 menit
+  - **Benefit**: Lebih patient menunggu response, mengurangi false timeout untuk koneksi lambat
+  - Applicable untuk semua challenge types setelah verification
+
+- **BUG FIX: Gemini API Response Handling** 🔧:
+  - Fixed critical bug in Gemini API SDK response extraction
+  - Changed from `result.text` to `result.response.text()` for compatibility with @google/genai v1.27.0
+  - Switched to 'gemini-2.0-flash-exp' model for better performance
+  - Added comprehensive error handling and debug logging
+  - Fixed in all solvers: bounding-box, jigsaw, multiple-choice, grid, and audio transcription
+  - **Result**: All Gemini API calls now work correctly, enabling coordinate precision improvements
+
+- **ULTRA-PRECISION COORDINATE SYSTEM** 🎯:
+  - **Problem**: Klik berhasil dilakukan tapi koordinat tidak tepat, verification timeout
+  - **Solution**: Implementasi ultra-precise coordinate analysis dengan grid system
+    - **Grid-Based Analysis**: Gemini sekarang membagi canvas menjadi grid 3×3 untuk systematic scan
+      - Setiap object dihitung dalam konteks grid section (TOP-L, TOP-C, TOP-R, MID-L, etc)
+      - Grid scan results dilaporkan dalam JSON response untuk verifikasi
+    - **Pixel-Perfect Measurements**: 
+      - Measurement notes sekarang include exact bounding box calculations
+      - Format: "left edge to right edge, center = Xpx"
+      - Verification terhadap grid divisions untuk double-check accuracy
+    - **Enhanced Coordinate Calculation**:
+      - Double precision calculation (round ke 2 decimal places)
+      - Detailed transform logging: Canvas → Scale → Viewport
+      - Debug output untuk setiap coordinate transformation
+    - **Reduced Jitter**: Random jitter dikurangi dari ±2px menjadi ±0.5px untuk presisi maksimal
+    - **Detailed Logging**: Setiap click sekarang log grid location, object name, measurement process
+  - **Benefits**:
+    - ✅ Koordinat presisi tinggi dengan grid-based validation
+    - ✅ Transparent measurement process untuk debugging
+    - ✅ Reduced false clicks karena jitter minimal
+    - ✅ Better success rate untuk bounding box challenges
+  - **Applies To**: 
+    - Bounding Box Solver (grid system + measurement notes)
+    - Jigsaw Solver (measurement process logging)
+
 - **MAJOR IMPROVEMENT: Virtual Cursor Movement Logic** ⭐:
   - **Problem**: Virtual cursor tidak benar-benar bergerak sesuai koordinat yang ditentukan Gemini
     - Bounding box: Menggunakan cursor.moveTo() tapi klik dengan page.mouse.down/up langsung
