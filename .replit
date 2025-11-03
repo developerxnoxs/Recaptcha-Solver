@@ -17,22 +17,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "NopeCHA Standard Demo"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
 args = "API Server"
-
-[[workflows.workflow]]
-name = "NopeCHA Standard Demo"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node index.js --sitekey ab803303-ac41-41aa-9be1-7b4e01b91e2c --url https://nopecha.com/demo/hcaptcha --mode normal --screenshot --debug"
-
-[workflows.workflow.metadata]
-outputType = "console"
 
 [[workflows.workflow]]
 name = "API Server"
@@ -52,10 +37,6 @@ externalPort = 80
 
 [[ports]]
 localPort = 33315
-
-[[ports]]
-localPort = 33751
-externalPort = 3001
 
 [[ports]]
 localPort = 46495
