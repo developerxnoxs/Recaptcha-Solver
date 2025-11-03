@@ -158,7 +158,30 @@ curl -X POST http://localhost:5000/solve \
   }'
 ```
 
-**Recent Changes** (November 2, 2025):
+**Recent Changes** (November 3, 2025):
+- **MAJOR IMPROVEMENT: Virtual Cursor Movement Logic** ⭐:
+  - **Problem**: Virtual cursor tidak benar-benar bergerak sesuai koordinat yang ditentukan Gemini
+    - Bounding box: Menggunakan cursor.moveTo() tapi klik dengan page.mouse.down/up langsung
+    - Jigsaw/Slider: Hanya cursor.moveTo() ke awal, drag menggunakan page.mouse.move() langsung
+    - Multiple choice: Tidak ada cursor movement sama sekali, langsung JavaScript click
+  - **Solution**: Implementasi ghost-cursor penuh untuk semua operasi
+    - **Bounding Box**: Sekarang menggunakan `cursor.click()` setelah moveTo untuk klik yang lebih natural
+    - **Jigsaw/Slider**: Menggunakan `cursor.moveTo()` untuk SETIAP langkah dalam drag operation (20-35 steps)
+      - Cursor sekarang benar-benar terlihat bergerak smooth dari start ke target position
+      - Setiap langkah menggunakan ghost-cursor dengan bezier curves
+      - Progress logging setiap 5 steps untuk monitoring
+    - **Multiple Choice**: Menambahkan cursor movement ke posisi button sebelum klik
+      - Mengambil koordinat center dari button element
+      - Menggunakan cursor.moveTo() dengan hesitate dan moveDelay untuk natural movement
+      - Menggunakan cursor.click() untuk klik yang realistic
+  - **Benefits**:
+    - ✅ Cursor movements terlihat 100% natural dan human-like
+    - ✅ Drag operations smooth dengan bezier curve paths
+    - ✅ Koordinat dari Gemini AI digunakan dengan presisi penuh
+    - ✅ Mengurangi risiko deteksi bot karena gerakan lebih realistic
+  - **Result**: Virtual cursor sekarang benar-benar bergerak sesuai koordinat yang ditentukan Gemini untuk semua jenis operasi (klik, drag & drop, multiple choice)
+
+**Previous Changes** (November 2, 2025):
 - **Enhanced Detection & Cursor Realism for Bounding Box and Jigsaw Challenges**:
   - **Bounding Box Multi-Target Detection Fix**:
     - Completely rewrote Gemini prompt to emphasize finding ALL matching objects
