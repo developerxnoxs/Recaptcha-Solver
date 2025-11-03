@@ -8,6 +8,19 @@ This project provides a command-line tool and an API service designed to automat
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+### November 2025 - Critical Coordinate Fixes
+Fixed critical iframe coordinate issues affecting all challenge types:
+
+1. **Bounding Box Challenge Fix**: Added iframe offset calculation with scroll compensation. Coordinates now properly account for iframe position on the page, using `frameElement.evaluate()` with `getBoundingClientRect()` + scroll offsets. Float precision maintained (no premature rounding), jitter reduced to ±0.15px for accuracy.
+
+2. **Grid Challenge Fix**: Applied same iframe offset fix to grid tile clicking. Tiles now clicked at correct absolute page coordinates instead of iframe-relative positions.
+
+3. **Jigsaw/Drag Challenge Fix**: Changed from `cursor.moveTo()` to `page.mouse.move()` for drag operations. Added `clickCount: 1` to mouse events. Smooth multi-step drag with variable timing and minimal jitter for natural movement.
+
+4. **Challenge Detection Fix**: Added keyword detection for drag-type challenges. Challenges with "drag", "slide", "move", or "position" in prompt now correctly identified as JIGSAW_SLIDER instead of BOUNDING_BOX.
+
 ## System Architecture
 
 ### UI/UX Decisions
@@ -17,7 +30,8 @@ The system defaults to a non-headless browser mode, allowing users to monitor th
 The core functionality relies on:
 - **Browser Automation**: Puppeteer Extra with Stealth Plugin is used to control a Chromium browser, mimicking human behavior and evading detection. It prioritizes system Chromium and uses a single process.
 - **AI Vision Processing**: Google Gemini AI (via `@google/genai` SDK) is integrated for visual recognition tasks within hCaptcha challenges, identifying and selecting correct images based on prompts.
-- **Challenge Detection**: A `CaptchaWatcher` class monitors the page state for hCaptcha challenges, employing an event-driven design with callbacks for different challenge states and precise frame management.
+- **Challenge Detection**: A `CaptchaWatcher` class monitors the page state for hCaptcha challenges, employing an event-driven design with callbacks for different challenge states and precise frame management. Enhanced with keyword-based detection for drag-type challenges.
+- **Iframe Coordinate Handling**: All click operations now properly account for iframe positioning and scroll offsets, ensuring pixel-perfect accuracy across all challenge types.
 - **Results Tracking**: A `ResultTracker` class maintains statistics on solving attempts, including success rates and average token generation time, with a sliding window for efficient memory use.
 - **Logging**: A Winston-based logging system provides configurable and structured output for debugging and monitoring.
 
