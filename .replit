@@ -38,7 +38,7 @@ author = 49385010
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js --sitekey \"b4c45857-0e23-48e6-9017-e28fff99ffb2\" --url \"https://nopecha.com/demo/hcaptcha\""
+args = "node index.js --sitekey \"b4c45857-0e23-48e6-9017-e28fff99ffb2\" --url \"https://nopecha.com/demo/hcaptcha\" --screenshot"
 
 [[ports]]
 localPort = 5000
