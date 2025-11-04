@@ -1,0 +1,62 @@
+🚀 Starting debug session for nopecha hCaptcha...
+🌐 Navigating to nopecha demo...
+⏳ Waiting for hCaptcha iframe...
+
+📋 Found 3 frames:
+  0: https://nopecha.com/demo/hcaptcha
+  1: https://newassets.hcaptcha.com/captcha/v1/13a948065e01b6100efd3266e69e8db867f5d462/static/hcaptcha.html#frame=challenge&id=0xb2n8qjibjj&host=nopecha.com&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=en&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=58366d97-3e8c-4b57-a679-4a41c8423be3&theme=light&origin=https%3A%2F%2Fnopecha.com
+  2: https://newassets.hcaptcha.com/captcha/v1/13a948065e01b6100efd3266e69e8db867f5d462/static/hcaptcha.html#frame=checkbox&id=0xb2n8qjibjj&host=nopecha.com&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=en&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=58366d97-3e8c-4b57-a679-4a41c8423be3&theme=light&origin=https%3A%2F%2Fnopecha.com
+
+🖱️  Clicking hCaptcha checkbox...
+✓ Checkbox clicked
+
+⏳ Waiting for challenge to appear...
+
+🔍 Analyzing challenge frame DOM structure...
+
+📊 DOM Analysis Results:
+═══════════════════════════════════════
+Prompt: Please drag tһe segment on the right to complete the line
+
+Draggable Elements: 0
+
+Canvas Elements: 1
+  1. 1000x860
+
+Button Elements: 7
+  1. DIV [button] - "EN"
+  2. DIV [button] - ""
+  3. DIV [refresh, button] - ""
+  4. A [hcaptcha-logo] - ""
+  5. DIV [button-submit, button] - "Skip"
+  6. DIV [button-submit-spinner] - ""
+  7. DIV [close, button] - ""
+
+All Elements (first 20):
+  1. <BODY> class="no-selection"
+  2. <DIV> class="interface-wrapper"
+  3. <DIV> class="challenge-container"
+  4. <DIV> class="challenge"
+  5. <DIV> class="challenge-view"
+  6. <DIV> class="challenge-prompt"
+  7. <H2> class="prompt-text"
+  8. <DIV> class="prompt-block"
+  9. <DIV> class="challenge-header"
+  10. <DIV> class="challenge-prompt"
+  11. <DIV> class="prompt-padding"
+  12. <H2> class="prompt-text"
+  13. <P> class="skip"
+  14. <DIV> class="prompt-bg"
+  15. <DIV> class="challenge-report"
+  16. <H2> class="report-text"
+  17. <DIV> class="report-bg"
+  18. <CANVAS> class=""
+  19. <DIV> class="interface-user"
+  20. <DIV> class="language-selector"
+
+✓ Full DOM analysis saved to: nopecha-dom-analysis.json
+✓ Screenshot saved to: screenshots/nopecha-debug.png
+
+⏳ Keeping browser open for 60 seconds for manual inspection...
+
+✓ Browser closed

@@ -1,0 +1,2364 @@
+{
+  "prompt": "Please drag tһe segment on the right to complete the line",
+  "allElements": [
+    {
+      "tag": "BODY",
+      "classes": [
+        "no-selection"
+      ],
+      "attributes": {
+        "class": "no-selection",
+        "style": "width: 520px; height: 530px;"
+      },
+      "text": "\n    /* { \"version\": \"1\", \"hash\": \"MEYCIQC/uvMs/q5"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "interface-wrapper"
+      ],
+      "attributes": {
+        "class": "interface-wrapper",
+        "style": "width: 500px; height: 510px; margin: 10px; position: relative;"
+      },
+      "text": "Please drag tһe segment on the right to complete t"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-container"
+      ],
+      "attributes": {
+        "class": "challenge-container",
+        "style": "width: 500px; height: 430px; position: relative; z-index: 0; margin-bottom: 10px; right: auto;"
+      },
+      "text": "Please drag tһe segment on the right to complete t"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge"
+      ],
+      "attributes": {
+        "class": "challenge",
+        "style": "width: 500px; height: 430px;"
+      },
+      "text": "Please drag tһe segment on the right to complete t"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-view"
+      ],
+      "attributes": {
+        "class": "challenge-view",
+        "style": "width: 500px; height: 430px; border-radius: 4px; overflow: hidden;"
+      },
+      "text": "Please drag tһe segment on the right to complete t"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-prompt"
+      ],
+      "attributes": {
+        "class": "challenge-prompt",
+        "style": "height: 60px; text-align: left; display: table; background-color: rgb(255, 255, 255); border-radius: 4px; width: 500px;"
+      },
+      "text": "Please drag tһe segment on the right to complete t"
+    },
+    {
+      "tag": "H2",
+      "classes": [
+        "prompt-text"
+      ],
+      "attributes": {
+        "class": "prompt-text",
+        "dir": "ltr",
+        "style": "opacity: 1; direction: ltr; text-align: center; height: 60px; vertical-align: middle; display: table-cell; font-size: 16px; font-weight: 700; color: rgb(112, 112, 112);"
+      },
+      "text": "Please drag tһe segment on the right to complete t"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "prompt-block"
+      ],
+      "attributes": {
+        "class": "prompt-block",
+        "style": "opacity: 0; position: absolute; top: 15px; left: 0px; z-index: 5; height: 30px; background-color: rgb(240, 239, 240); border-radius: 4px; width: 500px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-header"
+      ],
+      "attributes": {
+        "class": "challenge-header"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-prompt"
+      ],
+      "attributes": {
+        "class": "challenge-prompt"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "prompt-padding"
+      ],
+      "attributes": {
+        "class": "prompt-padding"
+      },
+      "text": ""
+    },
+    {
+      "tag": "H2",
+      "classes": [
+        "prompt-text"
+      ],
+      "attributes": {
+        "class": "prompt-text"
+      },
+      "text": ""
+    },
+    {
+      "tag": "P",
+      "classes": [
+        "skip"
+      ],
+      "attributes": {
+        "class": "skip"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "prompt-bg"
+      ],
+      "attributes": {
+        "class": "prompt-bg"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-report"
+      ],
+      "attributes": {
+        "class": "challenge-report",
+        "style": "display: none;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "H2",
+      "classes": [
+        "report-text"
+      ],
+      "attributes": {
+        "class": "report-text",
+        "tabindex": "0"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "report-bg"
+      ],
+      "attributes": {
+        "class": "report-bg"
+      },
+      "text": ""
+    },
+    {
+      "tag": "CANVAS",
+      "classes": [],
+      "attributes": {
+        "tabindex": "0",
+        "role": "img",
+        "aria-label": "Image-based CAPTCHA challenge. Please use the 'Accessibility: Retrieve Cookie' or 'Accessibility: Text Challenge' options if available in the challenge menu.",
+        "width": "1000",
+        "height": "860",
+        "style": "position: absolute; top: 0px; cursor: default; z-index: 10; width: 500px; height: 430px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "interface-user"
+      ],
+      "attributes": {
+        "class": "interface-user",
+        "dir": "ltr",
+        "style": "direction: ltr; text-align: left; width: 500px; height: 70px; position: absolute; left: 0px; bottom: 0px;"
+      },
+      "text": "AfrikaansAlbanianAmharicArabicArmenianAzerbaijaniB"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "language-selector"
+      ],
+      "attributes": {
+        "class": "language-selector",
+        "style": "position: absolute; display: inline-block; top: 0px; left: 0px; z-index: 100;"
+      },
+      "text": "AfrikaansAlbanianAmharicArabicArmenianAzerbaijaniB"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "scroll-container"
+      ],
+      "attributes": {
+        "class": "scroll-container",
+        "style": "line-height: 40px; white-space: nowrap; text-align: center; width: 100%; position: absolute; overflow-y: hidden;"
+      },
+      "text": "AfrikaansAlbanianAmharicArabicArmenianAzerbaijaniB"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Afrikaans"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Albanian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Amharic"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Arabic"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Armenian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Azerbaijani"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Basque"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Belarusian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Bengali"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Bulgarian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Bosnian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Burmese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Catalan"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Cebuano"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Chinese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Chinese Simplified"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Chinese Traditional"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Corsican"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Croatian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Czech"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Danish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Dutch"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "true",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: rgb(92, 111, 138); color: rgb(250, 250, 250);"
+      },
+      "text": "English"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Esperanto"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Estonian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Finnish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "French"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Frisian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Gaelic"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Galacian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Georgian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "German"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Greek"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Gujurati"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Haitian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Hausa"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Hawaiian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Hebrew"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Hindi"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Hmong"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Hungarian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Icelandic"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Igbo"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Indonesian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Irish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Italian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Japanese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Javanese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Kannada"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Kazakh"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Khmer"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Kinyarwanda"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Kirghiz"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Korean"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Kurdish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Lao"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Latin"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Latvian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Lithuanian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Luxembourgish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Macedonian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Malagasy"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Malay"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Malayalam"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Maltese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Maori"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Marathi"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Mongolian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Nepali"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Norwegian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Nyanja"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Oriya"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Persian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Polish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Portuguese (Brazil)"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Portuguese (Portugal)"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Pashto"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Punjabi"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Romanian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Russian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Samoan"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Shona"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Sindhi"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Sinhalese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Serbian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Slovak"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Slovenian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Somali"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Southern Sotho"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Spanish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Sundanese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Swahili"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Swedish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Tagalog"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Tajik"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Tamil"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Tatar"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Teluga"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Thai"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Turkish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Turkmen"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Uyghur"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Ukrainian"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Urdu"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Uzbek"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Vietnamese"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Welsh"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Xhosa"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Yiddish"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Yoruba"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "option"
+      ],
+      "attributes": {
+        "class": "option",
+        "tabindex": "0",
+        "aria-selected": "false",
+        "aria-setsize": "111",
+        "role": "option",
+        "style": "position: relative; cursor: pointer; height: 40px; font-size: 14px; font-weight: 400; border-width: 3px; border-style: solid; border-color: transparent; background: transparent; color: rgb(85, 85, 85);"
+      },
+      "text": "Zulu"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button"
+      ],
+      "attributes": {
+        "id": "display-language",
+        "class": "button",
+        "tabindex": "0",
+        "role": "button",
+        "aria-haspopup": "listbox",
+        "aria-label": "EN - English, Select a language",
+        "style": "display: table; cursor: pointer; text-align: center; font-weight: 600; width: 26px; height: 16px; font-size: 11px; background-color: rgb(255, 255, 255); outline-color: rgb(0, 131, 143); border-radius: 4px;"
+      },
+      "text": "EN"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "text"
+      ],
+      "attributes": {
+        "class": "text",
+        "aria-hidden": "true",
+        "style": "display: table-cell; vertical-align: middle;"
+      },
+      "text": "EN"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button"
+      ],
+      "attributes": {
+        "id": "menu-info",
+        "class": "button",
+        "tabindex": "0",
+        "role": "button",
+        "title": "Get information about hCaptcha and accessibility options.",
+        "aria-controls": "menu",
+        "aria-haspopup": "menu",
+        "style": "cursor: pointer; width: 35px; height: 35px; display: inline-block; background-color: rgb(255, 255, 255); outline: none; border-radius: 4px; position: absolute; bottom: 2.5px; z-index: 100; left: 0px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "info-on"
+      ],
+      "attributes": {
+        "class": "info-on",
+        "aria-hidden": "true",
+        "style": "width: 25px; height: 25px; position: absolute; top: 5px; left: 5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "info-off"
+      ],
+      "attributes": {
+        "class": "info-off",
+        "aria-hidden": "true",
+        "style": "width: 25px; height: 25px; position: absolute; top: 5px; left: 5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "scroll-container"
+      ],
+      "attributes": {
+        "class": "scroll-container"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "refresh",
+        "button"
+      ],
+      "attributes": {
+        "class": "refresh button",
+        "tabindex": "0",
+        "role": "button",
+        "aria-label": "Refresh Challenge.",
+        "title": "Refresh Challenge.",
+        "style": "cursor: pointer; display: inline-block; width: 35px; height: 35px; background-color: rgb(255, 255, 255); outline-color: rgb(0, 131, 143); border-radius: 4px; position: absolute; top: auto; bottom: 2.5px; z-index: 100; left: 45px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "refresh-on"
+      ],
+      "attributes": {
+        "class": "refresh-on",
+        "aria-hidden": "true",
+        "style": "width: 25px; height: 25px; position: absolute; top: 5px; left: 5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "refresh-off"
+      ],
+      "attributes": {
+        "class": "refresh-off",
+        "aria-hidden": "true",
+        "style": "width: 25px; height: 25px; position: absolute; top: 5px; left: 5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "A",
+      "classes": [
+        "hcaptcha-logo"
+      ],
+      "attributes": {
+        "class": "hcaptcha-logo",
+        "tabindex": "0",
+        "role": "button",
+        "target": "_blank",
+        "href": "https://www.hcaptcha.com/what-is-hcaptcha-about?ref=nopecha.com&utm_campaign=58366d97-3e8c-4b57-a679-4a41c8423be3&utm_medium=challenge&hl=en",
+        "title": "hCaptcha logo, opens new window with more information",
+        "style": "display: block; width: 35px; height: 35px; left: 50%; margin-left: -16px; cursor: pointer; position: absolute; border-radius: 4px; top: auto; bottom: 4px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "hcaptcha-logo-icon"
+      ],
+      "attributes": {
+        "class": "hcaptcha-logo-icon",
+        "style": "width: 32px; height: 32px; position: absolute; top: 1.5px; left: 1.5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "logo"
+      ],
+      "attributes": {
+        "class": "logo",
+        "style": "width: 32px; height: 32px; position: absolute; top: 0px; left: 0px; z-index: 5;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "interface-challenge"
+      ],
+      "attributes": {
+        "class": "interface-challenge",
+        "dir": "ltr",
+        "style": "direction: ltr; text-align: left; width: 500px; height: 70px; position: absolute; left: 0px; bottom: 0px;"
+      },
+      "text": "Please try again.  ⚠️Skip"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "display-error"
+      ],
+      "attributes": {
+        "class": "display-error",
+        "aria-hidden": "true",
+        "role": "alert",
+        "style": "opacity: 0; display: table; font-size: 12px; color: rgb(191, 23, 34); width: 100%; text-align: right; position: absolute; height: 16px; top: 0px; right: 0px; left: auto;"
+      },
+      "text": "Please try again.  ⚠️"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "error-text"
+      ],
+      "attributes": {
+        "class": "error-text",
+        "style": "display: table-cell; vertical-align: middle;"
+      },
+      "text": "Please try again.  ⚠️"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-breadcrumbs"
+      ],
+      "attributes": {
+        "class": "challenge-breadcrumbs"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "crumbs-wrapper"
+      ],
+      "attributes": {
+        "class": "crumbs-wrapper"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button-submit",
+        "button"
+      ],
+      "attributes": {
+        "class": "button-submit button",
+        "tabindex": "0",
+        "role": "button",
+        "title": "Skip Challenge",
+        "aria-label": "Skip Challenge",
+        "aria-disabled": "false",
+        "style": "cursor: pointer; background-color: rgb(85, 85, 85); height: 35px; min-width: 70px; padding: 0px 5px; border-radius: 4px; border: 2px solid rgb(255, 255, 255); position: absolute; bottom: 0px; z-index: 100; right: 0px; left: initial;"
+      },
+      "text": "Skip"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "text"
+      ],
+      "attributes": {
+        "class": "text",
+        "style": "color: rgb(255, 255, 255); display: block; width: 100%; height: 100%; text-align: center; position: relative; pointer-events: none; line-height: 35px; font-size: 14px; font-weight: 600; z-index: 5;"
+      },
+      "text": "Skip"
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button-submit-spinner"
+      ],
+      "attributes": {
+        "class": "button-submit-spinner",
+        "style": "display: none; width: 16px; height: 16px; position: absolute; left: 50%; top: 50%; margin-left: -8px; margin-top: -8px; z-index: 6;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "spinner-icon"
+      ],
+      "attributes": {
+        "class": "spinner-icon",
+        "style": "width: 16px; height: 16px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "challenge-modal"
+      ],
+      "attributes": {
+        "class": "challenge-modal",
+        "style": "visibility: hidden; display: table; z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "container"
+      ],
+      "attributes": {
+        "class": "container",
+        "style": "display: table-cell; vertical-align: middle;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "modal",
+        "no-outline"
+      ],
+      "attributes": {
+        "class": "modal no-outline",
+        "role": "dialog",
+        "aria-modal": "true",
+        "tabindex": "0",
+        "aria-describedby": "modal-content",
+        "style": "width: 325px; max-height: 275px; position: relative; margin: 0px auto; background-color: rgb(255, 255, 255); display: block; border-radius: 4px; z-index: 10; overflow: hidden; border: 1px solid rgb(224, 224, 224); box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2px; padding: 0px 15px 15px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "header"
+      ],
+      "attributes": {
+        "class": "header",
+        "aria-level": "1",
+        "style": "width: 325px; height: 44px; position: relative; top: 0px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "underline"
+      ],
+      "attributes": {
+        "class": "underline",
+        "style": "background-color: rgb(0, 131, 143); width: 325px; height: 1px; top: 44px; position: absolute;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "content"
+      ],
+      "attributes": {
+        "id": "modal-content",
+        "class": "content",
+        "style": "display: block; height: auto; margin-top: 10px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "close",
+        "button"
+      ],
+      "attributes": {
+        "class": "close button",
+        "tabindex": "0",
+        "role": "button",
+        "title": "Close Modal",
+        "style": "width: 30px; height: 30px; cursor: pointer; display: inline-block; background-color: rgb(255, 255, 255); outline-color: rgb(0, 131, 143); border-radius: 4px; position: absolute; right: 20px; top: 7px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "close-on"
+      ],
+      "attributes": {
+        "class": "close-on",
+        "aria-hidden": "true",
+        "style": "width: 20px; height: 20px; position: absolute; top: 5px; left: 5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "close-off"
+      ],
+      "attributes": {
+        "class": "close-off",
+        "aria-hidden": "true",
+        "style": "width: 20px; height: 20px; position: absolute; top: 5px; left: 5px;"
+      },
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "modal-bg"
+      ],
+      "attributes": {
+        "class": "modal-bg",
+        "style": "position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0; cursor: pointer;"
+      },
+      "text": ""
+    }
+  ],
+  "draggableElements": [],
+  "canvasElements": [
+    {
+      "width": 1000,
+      "height": 860,
+      "rect": {
+        "x": 10,
+        "y": 10,
+        "width": 500,
+        "height": 430
+      }
+    }
+  ],
+  "buttonElements": [
+    {
+      "tag": "DIV",
+      "classes": [
+        "button"
+      ],
+      "text": "EN",
+      "type": null
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button"
+      ],
+      "text": "",
+      "type": null
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "refresh",
+        "button"
+      ],
+      "text": "",
+      "type": null
+    },
+    {
+      "tag": "A",
+      "classes": [
+        "hcaptcha-logo"
+      ],
+      "text": "",
+      "type": null
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button-submit",
+        "button"
+      ],
+      "text": "Skip",
+      "type": null
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "button-submit-spinner"
+      ],
+      "text": "",
+      "type": null
+    },
+    {
+      "tag": "DIV",
+      "classes": [
+        "close",
+        "button"
+      ],
+      "text": "",
+      "type": null
+    }
+  ],
+  "challengeContainer": {
+    "classes": [
+      "challenge-container"
+    ],
+    "innerHTML": "<div class=\"challenge\" style=\"width: 500px; height: 430px;\"><div class=\"challenge-view\" style=\"width: 500px; height: 430px; border-radius: 4px; overflow: hidden;\"><div class=\"challenge-prompt\" style=\"height: 60px; text-align: left; display: table; background-color: rgb(255, 255, 255); border-radius: 4px; width: 500px;\"><h2 class=\"prompt-text\" dir=\"ltr\" style=\"opacity: 1; direction: ltr; text-align: center; height: 60px; vertical-align: middle; display: table-cell; font-size: 16px; font-weight: 7"
+  }
+}
