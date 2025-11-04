@@ -2,7 +2,7 @@
 
 const { Command } = require('commander');
 const path = require('path');
-const { launchBrowser, solveCaptchaWithStrategy, setLogger } = require('./lib/captcha-solver');
+const { launchBrowser, solveCaptchaWithStrategy, setLogger, setPageZoom } = require('./lib/captcha-solver');
 const ResultTracker = require('./lib/result-tracker');
 const createLogger = require('./utils/logger');
 
@@ -94,6 +94,9 @@ async function main() {
         });
 
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
+
+        // Set zoom to 70% (zoom out 30%)
+        await setPageZoom(page, 0.7);
 
         if (options.mode === 'inject') {
             logger.info(`🌐 Navigating to target URL: ${options.url}`);
