@@ -45,29 +45,18 @@ async function testCanvasSolver() {
         
         console.log('🤖 Attempting to solve hCaptcha...\n');
         
-        const result = await solveCaptchaChallenge(page, {
-            apiKey: apiKey,
-            enableScreenshot: true,
-            screenshotDir: './screenshots',
-            maxAttempts: 3,
-            verbose: true
-        });
+        const startTime = Date.now();
+        const token = await solveCaptchaChallenge(page, apiKey, './screenshots', true);
+        const timeTaken = Date.now() - startTime;
         
         console.log('\n' + '='.repeat(60));
-        if (result.success) {
+        if (token) {
             console.log('✅ SUCCESS! hCaptcha solved!');
-            console.log(`⏱️  Time taken: ${result.timeTaken}ms`);
-            console.log(`🔄 Attempts: ${result.attempts}`);
-            if (result.challengeType) {
-                console.log(`🎯 Challenge type: ${result.challengeType}`);
-            }
+            console.log(`⏱️  Time taken: ${timeTaken}ms`);
+            console.log(`🎫 Token: ${token.substring(0, 50)}...`);
         } else {
             console.log('❌ FAILED to solve hCaptcha');
-            console.log(`⏱️  Time taken: ${result.timeTaken}ms`);
-            console.log(`🔄 Attempts: ${result.attempts}`);
-            if (result.error) {
-                console.log(`⚠️  Error: ${result.error}`);
-            }
+            console.log(`⏱️  Time taken: ${timeTaken}ms`);
         }
         console.log('='.repeat(60) + '\n');
         
