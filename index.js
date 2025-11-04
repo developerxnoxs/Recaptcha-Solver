@@ -108,37 +108,11 @@ async function main() {
             const htmlContent = `<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>hCaptcha Solver</title>
+    <title>hCaptcha</title>
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        h2 {
-            margin-bottom: 30px;
-            color: #333;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>🤖 hCaptcha Solver</h2>
-        <div class="h-captcha" data-sitekey="${options.sitekey}"></div>
-    </div>
+    <div class="h-captcha" data-sitekey="${options.sitekey}"></div>
 </body>
 </html>`;
             
