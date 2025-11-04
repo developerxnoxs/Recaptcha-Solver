@@ -10,6 +10,56 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+### November 2025 - Spatial Reasoning Implementation (Python Repo Adaptation)
+**Major Enhancement:** Implemented advanced spatial reasoning inspired by [QIN2DIM/hcaptcha-challenger](https://github.com/QIN2DIM/hcaptcha-challenger) Python repository, while maintaining Gemini AI as the vision model.
+
+**New Capabilities:**
+1. **Structured Data Models** (`lib/models.js`):
+   - `CaptchaTask`, `ImageDragDropChallenge`, `BoundingBoxChallenge`, `GridBasedChallenge`
+   - `SpatialReasoningResult` with confidence levels and reasoning chains
+   - Task type and spatial type constants for systematic classification
+
+2. **Chain-of-Thought Spatial Reasoning** (`lib/spatial-reasoning.js`):
+   - 6-step systematic analysis method:
+     1. Goal Analysis - understand the challenge objective
+     2. Source Identification - analyze draggable elements
+     3. Destination Identification - identify target positions
+     4. **Rule Inference** - determine the logical pattern (e.g., "match by hole count")
+     5. Verification - validate the inferred rule
+     6. Solution Determination - generate source→target mappings
+   - Support for complex pattern types:
+     - Hole matching (shapes with same number of holes)
+     - Shape similarity (geometric structure matching)
+     - Pattern completion (complete visual sequences)
+     - Position logic (missing positions in grids)
+
+3. **Intelligent Challenge Routing** (`lib/jigsaw-solver.js`):
+   - Automatic detection of complex vs simple drag-drop challenges
+   - Complex patterns use spatial reasoning with chain-of-thought
+   - Simple jigsaw/sliders use legacy offset solver
+   - Seamless fallback mechanisms for robustness
+
+4. **Execution Layer with Coordinate Translation**:
+   - `executeSpatialDragOperations()` converts reasoning solutions to actual drag operations
+   - **Critical iframe coordinate translation**: iframe-relative → page coordinates
+   - Multi-drag support with human-like movements
+   - Comprehensive logging for debugging (iframe coords + page coords)
+
+**Technical Approach:**
+- Unlike Python repo's ONNX models, this uses pure Gemini Vision AI with advanced prompts
+- Maintains the same systematic reasoning approach and logical flow
+- Chain-of-thought prompts guide Gemini through step-by-step spatial analysis
+- Solution format: `{ source_id, target_id, explanation }` for each mapping
+
+**Example Reasoning Output:**
+```
+Inferred Rule: "Match draggable shapes to target shapes based on NUMBER OF HOLES"
+Solution:
+  - Source 1 (Circle with 2 holes) → Target A (Square with 2 holes)
+  - Source 2 (Triangle with 0 holes) → Target B (Pentagon with 0 holes)
+Confidence: high
+```
+
 ### November 2025 - Critical Coordinate Fixes
 Fixed critical iframe coordinate issues affecting all challenge types:
 
