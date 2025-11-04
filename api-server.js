@@ -89,54 +89,47 @@ app.post('/solve', async (req, res) => {
         });
         logger.info('✓ Target page loaded');
 
-        logger.info('🗑️  Clearing original page content...');
-        await page.evaluate(() => {
-            document.body.innerHTML = '';
-            document.head.innerHTML = '<meta charset="UTF-8"><title>hCaptcha Solver API</title>';
-        });
-        logger.info('✓ Original content cleared');
-
-        logger.info('💉 Injecting hCaptcha widget...');
-        await page.evaluate((sitekey) => {
-            document.body.innerHTML = `
-                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-                            background: white; padding: 40px; border-radius: 10px; 
-                            box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999999;">
-                    <h2 style="text-align: center; margin-bottom: 20px;">🤖 hCaptcha Solver API</h2>
-                    <div id="hcaptcha-container" style="display: flex; justify-content: center; margin: 20px 0;">
-                        <div id="hcaptcha-element"></div>
-                    </div>
-                    <div id="status" style="text-align: center; padding: 10px; background: #f0f4ff; border-radius: 4px;">
-                        Initializing...
-                    </div>
-                </div>
-            `;
-            
-            window._hcaptchaSitekey = sitekey;
-        }, sitekey);
-        logger.info('✓ Widget injected');
-
-        logger.info('💉 Injecting hCaptcha API script...');
-        await page.addScriptTag({
-            url: 'https://js.hcaptcha.com/1/api.js?onload=onHcaptchaLoad&render=explicit',
-            type: 'text/javascript'
-        });
-
-        await page.evaluate(() => {
-            window.onHcaptchaLoad = function() {
-                console.log('hCaptcha API loaded!');
-                const sitekey = window._hcaptchaSitekey;
-                hcaptcha.render('hcaptcha-element', {
-                    'sitekey': sitekey,
-                    'callback': function(token) {
-                        console.log('✅ Token received:', token);
-                        document.getElementById('status').textContent = '✅ Success!';
-                    }
-                });
-                document.getElementById('status').textContent = '✅ hCaptcha loaded';
-                console.log('hCaptcha rendered with sitekey:', sitekey);
-            };
-        });
+        logger.info('🗑️  Clearing original content and injecting hCaptcha...');
+        
+        const htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>hCaptcha Solver</title>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🤖 hCaptcha Solver</h2>
+        <div class="h-captcha" data-sitekey="${sitekey}"></div>
+    </div>
+</body>
+</html>`;
+        
+        await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
+        logger.info('✓ hCaptcha widget injected with sitekey: ' + sitekey);
 
         logger.info('⏳ Waiting for hCaptcha to render...');
         await page.waitForFunction(() => {

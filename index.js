@@ -103,25 +103,47 @@ async function main() {
             });
             logger.info('✓ Target page loaded');
 
-            logger.info('🗑️  Clearing original page content...');
-            logger.info('💉 Injecting fake page with hCaptcha...');
+            logger.info('🗑️  Clearing original content and injecting hCaptcha...');
             
-            const htmlContent = `
-<!DOCTYPE html>
+            const htmlContent = `<!DOCTYPE html>
 <html>
 <head>
-    <title>Hcaptcha Solver</title>
+    <meta charset="UTF-8">
+    <title>hCaptcha Solver</title>
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <form action="/submit" method="POST">
+    <div class="container">
+        <h2>🤖 hCaptcha Solver</h2>
         <div class="h-captcha" data-sitekey="${options.sitekey}"></div>
-    </form>
+    </div>
 </body>
 </html>`;
             
             await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
-            logger.info('✓ Fake page injected with sitekey: ' + options.sitekey);
+            logger.info('✓ hCaptcha widget injected with sitekey: ' + options.sitekey);
         } else {
             logger.info(`🌐 Navigating to target URL: ${options.url}`);
             await page.goto(options.url, {
