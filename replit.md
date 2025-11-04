@@ -60,6 +60,27 @@ Solution:
 Confidence: high
 ```
 
+### November 2025 - Gemini API Integration Fixes
+Fixed critical Gemini API compatibility issues with `@google/genai` v1.27.0:
+
+1. **Model Version Updates**: Migrated from unavailable gemini-1.5-* models to stable versions:
+   - `gemini-2.0-flash` for canvas analysis, bounding box, jigsaw, and multiple choice challenges
+   - `gemini-2.5-pro` for advanced spatial reasoning tasks
+   - Resolved 404 "model not found" errors with v1beta API
+
+2. **JSON Response Parsing**: Added robust handling for Gemini's markdown-wrapped JSON responses:
+   - Detects and strips ```json code blocks from responses
+   - Prevents "Unexpected token" parsing errors
+   - Supports both wrapped and plain JSON formats
+
+3. **Response Structure Handling**: Implemented flexible response parsing for multiple Gemini API formats:
+   - `result.response.text()` (async function)
+   - `result.text` (property)
+   - `result.response.candidates[0].content.parts[0].text` (structured format)
+   - Comprehensive error logging for debugging
+
+4. **Test File Fixes**: Corrected parameter passing in test-canvas-solver.js to match function signatures
+
 ### November 2025 - Critical Coordinate Fixes
 Fixed critical iframe coordinate issues affecting all challenge types:
 
@@ -98,7 +119,7 @@ The core functionality relies on:
 ## External Dependencies
 
 ### AI/ML Services
-- **Google Gemini AI**: Used for image recognition, accessed via `@google/genai` SDK. Requires `GEMINI_API_KEY`.
+- **Google Gemini AI**: Used for image recognition, accessed via `@google/genai` SDK v1.27.0. Models: `gemini-2.0-flash` (general), `gemini-2.5-pro` (spatial reasoning). Requires `GEMINI_API_KEY`.
 
 ### Browser Automation
 - **Puppeteer**: Core browser automation library.
